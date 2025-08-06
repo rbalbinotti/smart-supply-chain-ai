@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Ignora todos os arquivos dentro da pasta 'data'
+data/
+
+# Ignora todos os arquivos dentro da pasta 'models'
+models/

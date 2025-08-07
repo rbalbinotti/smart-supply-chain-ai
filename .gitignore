@@ -211,3 +211,9 @@ data/
 
 # Ignora todos os arquivos dentro da pasta 'models'
 models/
+
+# Ignora arquivos Libre Office
+*.odt
+*.ods
+*.odp
+

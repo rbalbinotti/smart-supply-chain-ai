@@ -1,4 +1,9 @@
-# Definições Projeto Compras com IA
+# Projeto Sistema Inteligente para Gestão de Compras e Estoque com IA
+## Autor: **Roberto Rosário Balbinotti**  
+Contato e Licença:  
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://mailto:rbalbinotti@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-balbinotti)  
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 ## 1. Concepção e Planejamento
 

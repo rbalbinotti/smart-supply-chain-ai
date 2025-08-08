@@ -1,6 +1,14 @@
 # Sistema Inteligente de Otimização de Estoque e Compras com Visão Computacional
+
+## Autor: Roberto Rosário Balbinotti
+Contato e Licença:  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-balbinotti)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://mailto:rbalbinotti@gmail.com)  
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+
+
 ## Descrição
+
 Este projeto demonstra a aplicação de **Machine Learning (ML)** e **Visão Computacional (CV)** para transformar a gestão de estoque. A solução utiliza técnicas avançadas para otimizar o giro de mercadorias, minimizar desperdícios e evitar compras mal dimensionadas. O resultado é uma cadeia de suprimentos mais ágil, previsível e lucrativa.
 
 ## Objetivo
@@ -68,8 +76,5 @@ O projeto visa transformar a gestão de estoque e compras, alcançando:
 * **Redução da Ruptura de Estoque:** Menor porcentagem de itens em falta.
 * **Aumento da Liquidez:** Liberação de capital que estaria preso em estoque parado.
 
----
-Para entrar em contato utilize os links abaixo:
-**Roberto Balbinotti**  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-balbinotti)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://mailto:rbalbinotti@gmail.com)
+
+

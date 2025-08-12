@@ -47,7 +47,7 @@ Para uma visão detalhada da organização dos arquivos e diretórios, consulte 
 
 Siga os passos abaixo para configurar e executar o projeto localmente:
 
-1.  Instale o PDM, se ainda não tiver:
+1.  Instale o PDM, Certifique-se de ter o PDM instalado:
     ```bash
     pip install pdm
     ```
@@ -68,6 +68,49 @@ Siga os passos abaixo para configurar e executar o projeto localmente:
     ```
 > Após a execução, a interface do dashboard estará acessível localmente.
 
+## Gestão e Versionamento de Dados com DVC
+Este projeto utiliza o **Data Version Control (DVC)** para versionar e gerenciar grandes conjuntos de dados e modelos. O DVC trabalha em conjunto com o Git, permitindo que o repositório de código permaneça leve, enquanto os arquivos grandes são armazenados separadamente.
+> Observação:  Os arquivos de dados não são incluídos no repositório.
+
+O que o DVC versiona:
+- Datasets Brutos: data/raw/
+- Datasets Processados: data/processed/
+- Modelos de ML: models/
+
+### Configuração do DVC
+Para configurar o armazenamento remoto do DVC, execute o seguinte comando. Isso irá configurar o local onde os dados serão armazenados.
+
+1. Crie o armazenamento local:
+
+    ```bash
+    # Para o armazenamento local que usamos neste projeto
+    dvc remote add -d [nome_do_repositorio] [caminho_local]
+
+    ex.: dvc remote add -d mylocalstorage /caminho/para/o/seu/dvc_local_storage
+    ```
+> **Observação**: O comando acima assume que você já possui a pasta /caminho/para/o/seu/dvc_local_storage criada.
+
+2. Obtendo os Dados e Modelos
+Após clonar o repositório, os arquivos de dados e modelos (que são pesados) não estarão presentes. Para baixá-los a partir do armazenamento remoto, use o comando dvc pull.
+    ```bash
+    pdm run dvc pull
+    ```
+> Este comando irá baixar todos os arquivos de dados e modelos referenciados nos arquivos .dvc e restaurá-los na estrutura de diretórios do seu projeto. (arquivos não fornecidos neste projeto)
+
+3. Atualizando os Dados e Modelos
+Sempre que você modificar um arquivo de dados ou modelo, use o comando dvc add para versioná-lo. Em seguida, envie os arquivos para o armazenamento remoto com dvc push.
+
+    ```bash
+    # Exemplo: Adicionando um novo arquivo de dados processados
+    pdm run dvc add data/processed/new_processed_data.csv
+
+    # Faça o commit do arquivo .dvc com o Git
+    git add data/processed/new_processed_data.csv.dvc
+    git commit -m "Adiciona dados processados atualizados"
+
+    # Envie os dados para o armazenamento remoto do DVC
+    pdm run dvc push
+    ```
 
 ## Resultados e Impacto Esperados
 O projeto visa transformar a gestão de estoque e compras, alcançando:

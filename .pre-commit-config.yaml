@@ -1,0 +1,9 @@
+repos:
+  - repo: local
+    hooks:
+      - id: deptry-pdm
+        name: deptry
+        entry: pdm run deptry
+        language: system
+        pass_filenames: false
+        types: [python]

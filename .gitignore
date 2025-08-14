@@ -220,3 +220,6 @@ models/
 # Ignore Data Version Control local storage
 
 dvc_local_storage/
+
+processo.txt
+

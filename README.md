@@ -120,4 +120,5 @@ O projeto visa transformar a gestão de estoque e compras, alcançando:
 * **Aumento da Liquidez:** Liberação de capital que estaria preso em estoque parado.
 
 
-
+## Links Úteis
+- [Kaggle-API](https://github.com/Kaggle/kaggle-api)

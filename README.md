@@ -119,6 +119,8 @@ O projeto visa transformar a gestão de estoque e compras, alcançando:
 * **Redução da Ruptura de Estoque:** Menor porcentagem de itens em falta.
 * **Aumento da Liquidez:** Liberação de capital que estaria preso em estoque parado.
 
+## Fonte de dados
+- [Informações sobre as fontes de dados](docs/data.md).
 
 ## Links Úteis
 - [Kaggle-API](https://github.com/Kaggle/kaggle-api)

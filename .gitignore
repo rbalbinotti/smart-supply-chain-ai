@@ -224,3 +224,6 @@ processo.txt
 
 # Don't ignore .dvc
 !*.dvc
+
+# arckive inter
+org_cod.py

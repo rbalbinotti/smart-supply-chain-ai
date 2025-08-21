@@ -1,5 +1,5 @@
 import numpy as np
-from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 class CustomCostMetrics:
     """
@@ -46,6 +46,8 @@ class CustomCostMetrics:
         
         return float(overstock_cost + understock_cost)
 
+
+
 def evaluate_forecast(y_true, y_pred, custom_cost_metrics=None):
     """
     Calculates and returns the evaluation metrics for a forecast.
@@ -54,9 +56,9 @@ def evaluate_forecast(y_true, y_pred, custom_cost_metrics=None):
         y_true (np.array or list): True values.
         y_pred (np.array or list): Predicted values.
         custom_cost_metrics (CustomCostMetrics, optional): Instance of the
-                                                               CustomCostMetrics class.
-                                                               If provided,
-                                                               the business cost will be calculated.
+                                                            CustomCostMetrics class.
+                                                            If provided,
+                                                            the business cost will be calculated.
 
     Returns:
         dict: A dictionary with the calculated metrics.
@@ -64,7 +66,8 @@ def evaluate_forecast(y_true, y_pred, custom_cost_metrics=None):
     
     metrics = {
         'RMSE': float(np.sqrt(mean_squared_error(y_true, y_pred))),
-        'MAE': mean_absolute_error(y_true, y_pred)
+        'MAE': mean_absolute_error(y_true, y_pred),
+        'r2_score': r2_score(y_true, y_pred)
     }
     
     if custom_cost_metrics:

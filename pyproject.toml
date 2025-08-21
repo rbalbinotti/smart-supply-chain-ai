@@ -5,7 +5,7 @@ description = "Sistema Inteligente de Otimização de Estoque e Compras com Vis�
 authors = [
     {name = "Roberto Rosário Balbinotti", email = "balbinotti@proton.me"},
 ]
-dependencies = ["pandas>=2.3.1", "numpy>=2.3.2", "scikit-learn>=1.7.1", "plotly>=6.3.0"]
+dependencies = ["pandas>=2.3.1", "numpy>=2.3.2", "scikit-learn>=1.7.1", "plotly>=6.3.0", "statsmodels>=0.14.5"]
 requires-python = ">=3.13"
 readme = "README.md"
 license = {text = "Creative Commons Attribution-NonCommercial 4.0 International"}

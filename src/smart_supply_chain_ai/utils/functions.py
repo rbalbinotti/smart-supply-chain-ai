@@ -1,5 +1,30 @@
 import pandas as pd
+import subprocess
+import sys
 
+# Function to dynamically get PDM dependencies
+def get_pdm_requirements():
+    """
+    Exports PDM dependencies and returns a list of strings.
+    """
+    try:
+        # Calls PDM to export the production environment requirements, without hashes
+        process = subprocess.run(
+            ['pdm', 'export', '--no-hashes'],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        # Splits the output into lines and filters out empty lines
+        requirements = [line.strip() for line in process.stdout.splitlines() if line.strip()][2:]
+        return requirements
+    except subprocess.CalledProcessError as e:
+        print(f"Error exporting dependencies with PDM: {e.stderr}")
+        return []
+
+
+
+# Class for process data
 class DataProcessor:
     """
     Class to detect outliers in Dataframe
@@ -24,6 +49,7 @@ class DataProcessor:
         return self.dataset[(self.dataset[self.column] > upper_limit) | (self.dataset[self.column] < under_limit)]
 
 
+
 if __name__ == '__main__':
 
     """
@@ -41,3 +67,6 @@ if __name__ == '__main__':
 
     print('DataFrame with outliers:')
     print(outliers_df)
+
+    print('Function for requirements stract')
+    print(get_pdm_requirements)

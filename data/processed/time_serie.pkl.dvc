@@ -1,0 +1,5 @@
+outs:
+- md5: 9249664cd1b8242307fad266f6dc122a
+  size: 203322
+  hash: md5
+  path: time_serie.pkl

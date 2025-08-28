@@ -2,6 +2,84 @@ import pandas as pd
 import subprocess
 import sys
 
+from sklearn.base import BaseEstimator, TransformerMixin
+
+# Class for Apply in stationary variable
+class Differentiator(BaseEstimator, TransformerMixin):
+    '''
+        Original columns not removed.
+        Create diff in columns
+
+        Use e.g:
+        diff = functions.Differentiator(columns=['Delivery_Lag', 'Days_For_Expiration'])
+        new_df = diff.transform(df)
+    '''
+    def __init__(self, columns):
+        self.columns = columns
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        X_copy = X.copy()
+        for col in self.columns:
+            diff_col = f"{col}_diff"
+            X_copy[diff_col] = X_copy[col].diff().fillna(0)
+        
+        # Removes the original date column
+        X_copy = X_copy.drop(columns=self.columns)
+        
+        return X_copy
+
+
+
+
+# Class for use with date
+class DateFeatureExtractor(BaseEstimator, TransformerMixin):
+    '''
+        Transform column in datetime and extract:
+        Year, Month, Day, 
+        Day of Year,
+        Day of Week,
+        Week of Year
+
+        e.g:
+        extractor = functions.DateFeatureExtractor(date_column='Date_Received')
+        df_transformed = extractor.transform(df)
+    '''
+    def __init__(self, date_column):
+        self.date_column = date_column
+
+    def fit(self, X, y=None):
+        # This transformer doesn't need to learn anything from the data, so fit does nothing.
+        return self
+
+    def transform(self, X):
+        # Ensures the operation does not alter the original DataFrame
+        X_copy = X.copy()
+        
+        # Converts the column to datetime format
+        X_copy[self.date_column] = pd.to_datetime(X_copy[self.date_column])
+
+        # Ascending date
+        X_copy = X_copy.sort_values(by=self.date_column).reset_index(drop=True)
+        
+        # Creates new time-based features
+        X_copy['year'] = X_copy[self.date_column].dt.year.astype('category')
+        X_copy['month'] = X_copy[self.date_column].dt.month.astype('category')
+        X_copy['day'] = X_copy[self.date_column].dt.day
+        X_copy['dayofyear'] = X_copy[self.date_column].dt.dayofyear
+        X_copy['dayofweek'] = X_copy[self.date_column].dt.dayofweek.astype('category')
+        X_copy['weekofyear'] = X_copy[self.date_column].dt.isocalendar().week.astype(int)
+        
+        # Removes the original date column
+        X_copy = X_copy.drop(columns=[self.date_column])
+        
+        return X_copy
+
+
+
+
 # Function to dynamically get PDM dependencies
 def get_pdm_requirements():
     """

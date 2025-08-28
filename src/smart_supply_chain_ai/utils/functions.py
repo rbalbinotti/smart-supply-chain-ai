@@ -4,6 +4,37 @@ import sys
 
 from sklearn.base import BaseEstimator, TransformerMixin
 
+
+class TextTokenizer(BaseEstimator, TransformerMixin):
+    '''
+        Use e.g.: 
+            text = TextTokenizer()
+            text.transform(X_train_processed[string_columns])
+    '''
+    def __init__(self):
+        pass
+
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        # X is already a DataFrame that contains ONLY the columns you listed
+        # in the ColumnTransformer.
+
+        # Convert the DataFrame to a string array and handle missing values.
+        processed_data = X.fillna('').astype(str).values
+
+        # For each row, join the strings from the columns and split them into tokens.
+        # The output will be a list of lists of strings, which is the ideal format
+        # for the FeatureHasher.
+        tokenized_data = [
+            ' '.join(row).split() for row in processed_data
+        ]
+        
+        return tokenized_data
+
+
+
 # Class for Apply in stationary variable
 class Differentiator(BaseEstimator, TransformerMixin):
     '''

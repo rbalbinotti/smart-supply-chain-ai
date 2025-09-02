@@ -78,8 +78,9 @@ class DateFeatureExtractor(BaseEstimator, TransformerMixin):
         extractor = functions.DateFeatureExtractor(date_column='Date_Received')
         df_transformed = extractor.transform(df)
     '''
-    def __init__(self, date_column):
+    def __init__(self, date_column, remove_column=False):
         self.date_column = date_column
+        self.remove_column = remove_column
 
     def fit(self, X, y=None):
         # This transformer doesn't need to learn anything from the data, so fit does nothing.
@@ -104,7 +105,8 @@ class DateFeatureExtractor(BaseEstimator, TransformerMixin):
         X_copy['weekofyear'] = X_copy[self.date_column].dt.isocalendar().week.astype(int)
         
         # Removes the original date column
-        X_copy = X_copy.drop(columns=[self.date_column])
+        if self.remove_column:
+            X_copy = X_copy.drop(columns=[self.date_column])
         
         return X_copy
 

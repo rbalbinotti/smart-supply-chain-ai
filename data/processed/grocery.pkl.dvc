@@ -1,5 +1,5 @@
 outs:
-- md5: d5cd82f9a43865d5daee2fbfd195d8c0
-  size: 186303
+- md5: 1cd816f3a495f45773a67cb8f87a34eb
+  size: 178206
   hash: md5
   path: grocery.pkl

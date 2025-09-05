@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:de8adc0b794266b6c3136358abb27b51f7284e073d2fd56583b90d582902354a"
+content_hash = "sha256:726a6f83411ba1bab9a2864ef19c806ce0969cc1016e0079b11b3c8325df68c1"
 
 [[metadata.targets]]
 requires_python = ">=3.11,<3.13"
@@ -3571,6 +3571,17 @@ files = [
 ]
 
 [[package]]
+name = "scikit-base"
+version = "0.12.5"
+requires_python = "<3.14,>=3.9"
+summary = "Base classes for sklearn-like parametric objects"
+groups = ["default"]
+files = [
+    {file = "scikit_base-0.12.5-py3-none-any.whl", hash = "sha256:340591f7f1de57d76d38ff964926a08eb60a132ddb4de3f281d0e4a1bbb7fc00"},
+    {file = "scikit_base-0.12.5.tar.gz", hash = "sha256:7f97533bc3ee1e51b7c4c80fbca9dfd0845adff9e762625b5f9e141c664c2257"},
+]
+
+[[package]]
 name = "scikit-learn"
 version = "1.7.1"
 requires_python = ">=3.10"
@@ -3719,6 +3730,26 @@ groups = ["default", "dev"]
 files = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
     {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
+]
+
+[[package]]
+name = "sktime"
+version = "0.38.5"
+requires_python = "<3.14,>=3.9"
+summary = "A unified framework for machine learning with time series"
+groups = ["default"]
+dependencies = [
+    "joblib<1.6,>=1.2.0",
+    "numpy<2.4,>=1.21",
+    "packaging",
+    "pandas<2.4.0,>=1.1",
+    "scikit-base<0.13.0,>=0.6.1",
+    "scikit-learn<1.8.0,>=0.24",
+    "scipy<2.0.0,>=1.2",
+]
+files = [
+    {file = "sktime-0.38.5-py3-none-any.whl", hash = "sha256:5419ce29ae0d20a40124325c30e40d5a339cc1bfba74080912c3cee45aa8e347"},
+    {file = "sktime-0.38.5.tar.gz", hash = "sha256:0e110aa440ca0baafaf21ae23f1edf22d1c7a289254d9d99e81979580055a955"},
 ]
 
 [[package]]

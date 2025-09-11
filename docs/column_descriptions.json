@@ -20,5 +20,6 @@
     "Expiration_Status": "Categorical status based on the expiration date (e.g., Expired, Nearing, Safe).",
     "Purchase_Order": "The total monetary value of the new order (Reorder_Quantity * Unit_Price), used to analyze discrepancies.",
     "DOI_Inv_Turnover": "Days of Inventory. The number of days the current inventory can last, based on the annual sales rate.",
-    "Delivery_Lag": "The number of days between the last order date and the date the product was received."
+    "Delivery_Lag": "The number of days between the last order date and the date the product was received.",
+    "Delivery_Lag_Issue": "Flag records with inconsistent delivery lag (negative values)."
 }

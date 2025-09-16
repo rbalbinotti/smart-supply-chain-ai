@@ -1,0 +1,92 @@
+{
+    "Produce": {
+        "lead_time_days": [
+            1,
+            10
+        ],
+        "shelf_life_days": [
+            3,
+            14
+        ]
+    },
+    "Grains and Flours": {
+        "lead_time_days": [
+            3,
+            15
+        ],
+        "shelf_life_days": [
+            180,
+            730
+        ]
+    },
+    "Dairy and Cold Cuts": {
+        "lead_time_days": [
+            2,
+            10
+        ],
+        "shelf_life_days": [
+            7,
+            90
+        ]
+    },
+    "Beverages": {
+        "lead_time_days": [
+            2,
+            7
+        ],
+        "shelf_life_days": [
+            180,
+            730
+        ]
+    },
+    "Eggs and Poultry": {
+        "lead_time_days": [
+            1,
+            7
+        ],
+        "shelf_life_days": [
+            7,
+            35
+        ]
+    },
+    "Meats and Fish": {
+        "lead_time_days": [
+            1,
+            10
+        ],
+        "shelf_life_days": [
+            2,
+            180
+        ]
+    },
+    "Oils and Fats": {
+        "lead_time_days": [
+            3,
+            7
+        ],
+        "shelf_life_days": [
+            180,
+            730
+        ]
+    },
+    "Sugars and Sweets": {
+        "lead_time_days": [
+            2,
+            5
+        ],
+        "shelf_life_days": [
+            365,
+            1825
+        ]
+    },
+    "Miscellaneous and Biscuits": {
+        "lead_time_days": [
+            2,
+            6
+        ],
+        "shelf_life_days": [
+            7,
+            180
+        ]
+    }
+}

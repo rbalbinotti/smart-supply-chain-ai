@@ -1,0 +1,1630 @@
+{
+  "Strawberries": {
+    "product_id": "P-001",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 5,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["July", "August", "September", "October", "November"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000018",
+    "reorder_point": 10
+    },
+
+  "Spinach": {
+    "product_id": "P-002",
+    "category": "Fresh Foods",
+    "sub_category": "Leafy Greens",
+    "shelf_life_days": 5,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "bunch",
+    "barcode_ean": "8712345000025",
+    "reorder_point": 8
+    },
+
+  "Mushrooms": {
+    "product_id": "P-003",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 7,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, in a paper bag",
+    "unit_of_measurement": "pack",
+    "barcode_ean": "8712345000032",
+    "reorder_point": 7
+    },
+
+  "Cucumber": {
+    "product_id": "P-004",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 5,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000049",
+    "reorder_point": 10
+    },
+
+  "Zucchini": {
+    "product_id": "P-005",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 5,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["January", "February", "March", "April", "May"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000056",
+    "reorder_point": 9
+    },
+
+  "Mango": {
+    "product_id": "P-006",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 5,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["December", "January", "February"],
+    "storage_recommendation": "Room temperature until ripe, then refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000063",
+    "reorder_point": 6
+    },
+
+  "Broccoli": {
+    "product_id": "P-007",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 7,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "head",
+    "barcode_ean": "8712345000070",
+    "reorder_point": 8
+    },
+
+  "Peas": {
+    "product_id": "P-008",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["September", "October", "November", "December", "January", "February"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "pack",
+    "barcode_ean": "8712345000087",
+    "reorder_point": 12
+    },
+
+  "Lettuce": {
+    "product_id": "P-009",
+    "category": "Fresh Foods",
+    "sub_category": "Leafy Greens",
+    "shelf_life_days": 7,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "head",
+    "barcode_ean": "8712345000094",
+    "reorder_point": 9
+    },
+
+  "Banana": {
+    "product_id": "P-010",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 3,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Room temperature, away from other fruits",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000100",
+    "reorder_point": 15
+    },
+
+  "Peach": {
+    "product_id": "P-011",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["November", "December", "January", "February"],
+    "storage_recommendation": "Room temperature until ripe, then refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000117",
+    "reorder_point": 8
+    },
+
+  "Cauliflower": {
+    "product_id": "P-012",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 7,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "head",
+    "barcode_ean": "8712345000124",
+    "reorder_point": 7
+    },
+
+  "Grapes": {
+    "product_id": "P-013",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 7,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["November", "December", "January", "February"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "bunch",
+    "barcode_ean": "8712345000131",
+    "reorder_point": 9
+    },
+
+  "Apricot": {
+    "product_id": "P-014",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["November", "December", "January"],
+    "storage_recommendation": "Room temperature until ripe, then refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000148",
+    "reorder_point": 6
+    },
+
+  "Papaya": {
+    "product_id": "P-015",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Room temperature until ripe, then refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000155",
+    "reorder_point": 7
+    },
+
+  "Tomato": {
+    "product_id": "P-016",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Room temperature, away from direct sunlight",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000162",
+    "reorder_point": 12
+    },
+
+  "Cherry": {
+    "product_id": "P-017",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 5,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["November", "December", "January"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "pack",
+    "barcode_ean": "8712345000179",
+    "reorder_point": 10
+    },
+
+  "Kale": {
+    "product_id": "P-018",
+    "category": "Fresh Foods",
+    "sub_category": "Leafy Greens",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "bunch",
+    "barcode_ean": "8712345000186",
+    "reorder_point": 8
+    },
+
+  "Asparagus": {
+    "product_id": "P-019",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["September", "October", "November"],
+    "storage_recommendation": "Refrigerated, wrapped in a damp paper towel",
+    "unit_of_measurement": "bunch",
+    "barcode_ean": "8712345000193",
+    "reorder_point": 7
+    },
+
+  "Green Beans": {
+    "product_id": "P-020",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["January", "February", "March", "April", "May"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "pack",
+    "barcode_ean": "8712345000209",
+    "reorder_point": 9
+    },
+
+  "Feta Cheese": {
+    "product_id": "P-021",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "block",
+    "barcode_ean": "8712345000216",
+    "reorder_point": 7
+    },
+
+  "Ricotta Cheese": {
+    "product_id": "P-022",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "tub",
+    "barcode_ean": "8712345000223",
+    "reorder_point": 8
+    },
+
+  "Mozzarella Cheese": {
+    "product_id": "P-023",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "block",
+    "barcode_ean": "8712345000230",
+    "reorder_point": 9
+    },
+
+  "Heavy Cream": {
+    "product_id": "P-024",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "quart",
+    "barcode_ean": "8712345000247",
+    "reorder_point": 10
+    },
+
+  "Cream": {
+    "product_id": "P-025",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "pint",
+    "barcode_ean": "8712345000254",
+    "reorder_point": 9
+    },
+
+  "Whipped Cream": {
+    "product_id": "P-026",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 2,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "can",
+    "barcode_ean": "8712345000261",
+    "reorder_point": 7
+    },
+
+  "Cottage Cheese": {
+    "product_id": "P-027",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "tub",
+    "barcode_ean": "8712345000278",
+    "reorder_point": 8
+    },
+
+  "Milk": {
+    "product_id": "P-028",
+    "category": "Dairy",
+    "sub_category": "Milk",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "gallon",
+    "barcode_ean": "8712345000285",
+    "reorder_point": 10
+    },
+
+  "Trout": {
+    "product_id": "P-029",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000292",
+    "reorder_point": 5
+    },
+
+  "Haddock": {
+    "product_id": "P-030",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000308",
+    "reorder_point": 5
+    },
+
+  "Sardines": {
+    "product_id": "P-031",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000315",
+    "reorder_point": 5
+    },
+
+  "Anchovies": {
+    "product_id": "P-032",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000322",
+    "reorder_point": 5
+    },
+
+  "Mackerel": {
+    "product_id": "P-033",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000339",
+    "reorder_point": 5
+    },
+
+  "Halibut": {
+    "product_id": "P-034",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000346",
+    "reorder_point": 5
+    },
+
+  "Salmon": {
+    "product_id": "P-035",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000353",
+    "reorder_point": 8
+    },
+
+  "Tilapia": {
+    "product_id": "P-036",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000360",
+    "reorder_point": 5
+    },
+
+  "Cod": {
+    "product_id": "P-037",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000377",
+    "reorder_point": 6
+    },
+
+  "Tuna": {
+    "product_id": "P-038",
+    "category": "Meats & Fish",
+    "sub_category": "Fish",
+    "shelf_life_days": 1,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated, consume fresh",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000384",
+    "reorder_point": 7
+    },
+
+  "Plum": {
+    "product_id": "P-039",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 4,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": ["September", "October", "November", "December", "January"],
+    "storage_recommendation": "Room temperature until ripe, then refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000391",
+    "reorder_point": 8
+    },
+
+  "Rye Bread": {
+    "product_id": "P-040",
+    "category": "Breads & Biscuits",
+    "sub_category": "Breads",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place or frozen",
+    "unit_of_measurement": "loaf",
+    "barcode_ean": "8712345000407",
+    "reorder_point": 7
+    },
+
+  "Sourdough Bread": {
+    "product_id": "P-041",
+    "category": "Breads & Biscuits",
+    "sub_category": "Breads",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place or frozen",
+    "unit_of_measurement": "loaf",
+    "barcode_ean": "8712345000414",
+    "reorder_point": 8
+    },
+
+  "Whole Wheat Bread": {
+    "product_id": "P-042",
+    "category": "Breads & Biscuits",
+    "sub_category": "Breads",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place or refrigerated",
+    "unit_of_measurement": "loaf",
+    "barcode_ean": "8712345000421",
+    "reorder_point": 10
+    },
+
+  "White Bread": {
+    "product_id": "P-043",
+    "category": "Breads & Biscuits",
+    "sub_category": "Breads",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place or refrigerated",
+    "unit_of_measurement": "loaf",
+    "barcode_ean": "8712345000438",
+    "reorder_point": 12
+    },
+
+  "Multigrain Bread": {
+    "product_id": "P-044",
+    "category": "Breads & Biscuits",
+    "sub_category": "Breads",
+    "shelf_life_days": 6,
+    "min_stock": 10,
+    "max_stock": 25,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place or refrigerated",
+    "unit_of_measurement": "loaf",
+    "barcode_ean": "8712345000445",
+    "reorder_point": 9
+    },
+
+  "Cabbage": {
+    "product_id": "P-045",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "head",
+    "barcode_ean": "8712345000452",
+    "reorder_point": 20
+    },
+
+  "Lemon": {
+    "product_id": "P-046",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 21,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000469",
+    "reorder_point": 25
+    },
+
+  "Kiwi": {
+    "product_id": "P-047",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": ["June", "July", "August"],
+    "storage_recommendation": "Room temperature until ripe, then refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000476",
+    "reorder_point": 20
+    },
+
+  "Orange": {
+    "product_id": "P-048",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 17,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": ["May", "June", "July", "August"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000483",
+    "reorder_point": 25
+    },
+
+  "Carrot": {
+    "product_id": "P-049",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 24,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "lb",
+    "barcode_ean": "8712345000490",
+    "reorder_point": 30
+    },
+
+  "Bell Pepper": {
+    "product_id": "P-050",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000506",
+    "reorder_point": 20
+    },
+
+  "Coconut": {
+    "product_id": "P-051",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 17,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000513",
+    "reorder_point": 25
+    },
+
+  "Pomegranate": {
+    "product_id": "P-052",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 30,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": ["March", "April", "May", "June"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000520",
+    "reorder_point": 20
+    },
+
+  "Watermelon": {
+    "product_id": "P-053",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": ["December", "January", "February", "March"],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000537",
+    "reorder_point": 20
+    },
+
+  "Apple": {
+    "product_id": "P-054",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 24,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000544",
+    "reorder_point": 30
+    },
+
+  "Sweet Potato": {
+    "product_id": "P-055",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 17,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry, and dark place",
+    "unit_of_measurement": "lb",
+    "barcode_ean": "8712345000551",
+    "reorder_point": 25
+    },
+
+  "Lime": {
+    "product_id": "P-056",
+    "category": "Fresh Foods",
+    "sub_category": "Fruits",
+    "shelf_life_days": 21,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000568",
+    "reorder_point": 25
+    },
+
+  "Greek Yogurt": {
+    "product_id": "P-057",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "tub",
+    "barcode_ean": "8712345000575",
+    "reorder_point": 20
+    },
+
+  "Swiss Cheese": {
+    "product_id": "P-058",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 17,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "block",
+    "barcode_ean": "8712345000582",
+    "reorder_point": 20
+    },
+
+  "Parmesan Cheese": {
+    "product_id": "P-059",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 24,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "block",
+
+    "barcode_ean": "8712345000599",
+    "reorder_point": 20
+    },
+
+  "Gouda Cheese": {
+    "product_id": "P-060",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 17,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "block",
+    "barcode_ean": "8712345000605",
+    "reorder_point": 20
+    },
+
+  "Buttermilk": {
+    "product_id": "P-061",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "pint",
+    "barcode_ean": "8712345000612",
+    "reorder_point": 20
+    },
+
+  "Sour Cream": {
+    "product_id": "P-062",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "tub",
+    "barcode_ean": "8712345000629",
+    "reorder_point": 20
+    },
+
+  "Yogurt": {
+    "product_id": "P-063",
+    "category": "Dairy",
+    "sub_category": "Creams & Yogurts",
+    "shelf_life_days": 10,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "tub",
+    "barcode_ean": "8712345000636",
+    "reorder_point": 20
+    },
+
+  "Cheese": {
+    "product_id": "P-064",
+    "category": "Dairy",
+    "sub_category": "Cheeses",
+    "shelf_life_days": 14,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "block",
+    "barcode_ean": "8712345000643",
+    "reorder_point": 20
+    },
+
+  "Egg (Goose)": {
+    "product_id": "P-065",
+    "category": "Fresh Foods",
+    "sub_category": "Eggs",
+    "shelf_life_days": 28,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000650",
+    "reorder_point": 20
+    },
+
+  "Egg (Duck)": {
+    "product_id": "P-066",
+    "category": "Fresh Foods",
+    "sub_category": "Eggs",
+    "shelf_life_days": 28,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000667",
+    "reorder_point": 20
+    },
+
+  "Egg (Quail)": {
+    "product_id": "P-067",
+    "category": "Fresh Foods",
+    "sub_category": "Eggs",
+    "shelf_life_days": 28,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "dozen",
+    "barcode_ean": "8712345000674",
+    "reorder_point": 20
+    },
+
+  "Egg (Turkey)": {
+    "product_id": "P-068",
+    "category": "Fresh Foods",
+    "sub_category": "Eggs",
+    "shelf_life_days": 28,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000681",
+    "reorder_point": 20
+    },
+
+  "Egg (Chicken)": {
+    "product_id": "P-069",
+    "category": "Fresh Foods",
+    "sub_category": "Eggs",
+    "shelf_life_days": 28,
+    "min_stock": 25,
+    "max_stock": 50,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "dozen",
+    "barcode_ean": "8712345000698",
+    "reorder_point": 30
+    },
+
+  "Garlic": {
+    "product_id": "P-070",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 120,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place",
+    "unit_of_measurement": "head",
+    "barcode_ean": "8712345000704",
+    "reorder_point": 40
+    },
+
+  "Onion": {
+    "product_id": "P-071",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 45,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place",
+    "unit_of_measurement": "unit",
+    "barcode_ean": "8712345000711",
+    "reorder_point": 40
+    },
+
+  "Potato": {
+    "product_id": "P-072",
+    "category": "Fresh Foods",
+    "sub_category": "Vegetables",
+    "shelf_life_days": 45,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark, and dry place",
+    "unit_of_measurement": "lb",
+    "barcode_ean": "8712345000728",
+    "reorder_point": 40
+    },
+
+  "Whole Wheat Flour": {
+    "product_id": "P-073",
+    "category": "Grains & Flours",
+    "sub_category": "Flours",
+    "shelf_life_days": 135,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000735",
+    "reorder_point": 50
+    },
+
+  "Brown Rice": {
+    "product_id": "P-074",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000742",
+    "reorder_point": 50
+    },
+
+  "Almond Flour": {
+    "product_id": "P-075",
+    "category": "Grains & Flours",
+    "sub_category": "Flours",
+    "shelf_life_days": 135,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place or refrigerated",
+    "unit_of_measurement": "kg",
+
+    "barcode_ean": "8712345000759",
+    "reorder_point": 50
+    },
+
+  "Corn Oil": {
+    "product_id": "P-076",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000766",
+    "reorder_point": 50
+    },
+
+  "Peanut Oil": {
+    "product_id": "P-077",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000773",
+    "reorder_point": 50
+    },
+
+  "Palm Oil": {
+    "product_id": "P-078",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000780",
+    "reorder_point": 50
+    },
+
+  "Canola Oil": {
+    "product_id": "P-079",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000797",
+    "reorder_point": 50
+    },
+
+  "Sesame Oil": {
+    "product_id": "P-080",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 120,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000803",
+    "reorder_point": 40
+    },
+
+  "Sunflower Oil": {
+    "product_id": "P-081",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000810",
+    "reorder_point": 50
+    },
+
+  "Vegetable Oil": {
+    "product_id": "P-082",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 180,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345000827",
+    "reorder_point": 50
+    },
+
+  "Butter": {
+    "product_id": "P-083",
+    "category": "Dairy",
+    "sub_category": "Butter",
+    "shelf_life_days": 60,
+    "min_stock": 50,
+    "max_stock": 100,
+    "seasonality": [],
+    "storage_recommendation": "Refrigerated",
+    "unit_of_measurement": "kg",
+
+    "barcode_ean": "8712345000834",
+    "reorder_point": 40
+    },
+
+  "Sushi Rice": {
+    "product_id": "P-084",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000841",
+    "reorder_point": 70
+  },
+
+  "Black Rice": {
+    "product_id": "P-085",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000858",
+    "reorder_point": 70
+  },
+
+  "Long Grain Rice": {
+    "product_id": "P-086",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000865",
+    "reorder_point": 100
+  },
+
+  "All-Purpose Flour": {
+    "product_id": "P-087",
+    "category": "Grains & Flours",
+    "sub_category": "Flours",
+    "shelf_life_days": 270,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000872",
+    "reorder_point": 100
+  },
+
+  "Bread Flour": {
+    "product_id": "P-088",
+    "category": "Grains & Flours",
+    "sub_category": "Flours",
+    "shelf_life_days": 270,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000889",
+    "reorder_point": 100
+  },
+
+  "Basmati Rice": {
+    "product_id": "P-089",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000896",
+    "reorder_point": 80
+  },
+
+  "Jasmine Rice": {
+    "product_id": "P-090",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000902",
+    "reorder_point": 90
+  },
+
+  "Rice Flour": {
+    "product_id": "P-091",
+    "category": "Grains & Flours",
+    "sub_category": "Flours",
+    "shelf_life_days": 365,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000919",
+    "reorder_point": 80
+  },
+
+  "Wild Rice": {
+    "product_id": "P-092",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000926",
+    "reorder_point": 60
+  },
+
+  "Short Grain Rice": {
+    "product_id": "P-093",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000933",
+    "reorder_point": 90
+  },
+
+  "White Rice": {
+    "product_id": "P-094",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 730,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000940",
+    "reorder_point": 100
+  },
+
+  "Arborio Rice": {
+    "product_id": "P-095",
+    "category": "Grains & Flours",
+    "sub_category": "Grains",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345000957",
+    "reorder_point": 70
+  },
+
+  "Evaporated Milk": {
+    "product_id": "P-096",
+    "category": "Dairy",
+    "sub_category": "Milk",
+    "shelf_life_days": 1095,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place",
+    "unit_of_measurement": "can",
+    "barcode_ean": "8712345000964",
+    "reorder_point": 100
+  },
+
+  "Arabica Coffee": {
+    "product_id": "P-097",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "g",
+    "barcode_ean": "8712345000971",
+    "reorder_point": 100
+  },
+
+  "Herbal Tea": {
+    "product_id": "P-098",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345000988",
+    "reorder_point": 100
+  },
+
+  "Black Coffee": {
+    "product_id": "P-099",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "g",
+    "barcode_ean": "8712345000995",
+    "reorder_point": 100
+  },
+
+  "Black Tea": {
+    "product_id": "P-100",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001008",
+    "reorder_point": 100
+  },
+
+  "White Tea": {
+    "product_id": "P-101",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001015",
+    "reorder_point": 100
+  },
+
+  "Green Tea": {
+    "product_id": "P-102",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 270,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001022",
+    "reorder_point": 100
+  },
+
+  "Green Coffee": {
+    "product_id": "P-103",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "g",
+    "barcode_ean": "8712345001039",
+    "reorder_point": 100
+  },
+
+  "Robusta Coffee": {
+    "product_id": "P-104",
+    "category": "Beverages",
+    "sub_category": "Coffees & Teas",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in an airtight container",
+    "unit_of_measurement": "g",
+    "barcode_ean": "8712345001046",
+    "reorder_point": 100
+  },
+
+  "Olive Oil": {
+    "product_id": "P-105",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 360,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in a sealed bottle",
+    "unit_of_measurement": "L",
+
+    "barcode_ean": "8712345001053",
+    "reorder_point": 80
+  },
+
+  "Avocado Oil": {
+    "product_id": "P-106",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in a sealed bottle",
+    "unit_of_measurement": "L",
+
+    "barcode_ean": "8712345001060",
+    "reorder_point": 70
+  },
+
+  "Coconut Oil": {
+    "product_id": "P-107",
+    "category": "Oils & Condiments",
+    "sub_category": "Oils",
+    "shelf_life_days": 540,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dark place in a sealed container",
+    "unit_of_measurement": "L",
+    "barcode_ean": "8712345001077",
+    "reorder_point": 80
+  },
+
+  "White Sugar": {
+    "product_id": "P-108",
+    "category": "Oils & Condiments",
+    "sub_category": "Condiments",
+    "shelf_life_days": 9999,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345001084",
+    "reorder_point": 150
+  },
+
+  "Raw Sugar": {
+    "product_id": "P-109",
+    "category": "Oils & Condiments",
+    "sub_category": "Condiments",
+    "shelf_life_days": 9999,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345001091",
+    "reorder_point": 120
+  },
+
+  "Powdered Sugar": {
+    "product_id": "P-110",
+    "category": "Oils & Condiments",
+    "sub_category": "Condiments",
+    "shelf_life_days": 9999,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345001107",
+    "reorder_point": 100
+  },
+
+  "Coconut Sugar": {
+    "product_id": "P-111",
+    "category": "Oils & Condiments",
+    "sub_category": "Condiments",
+    "shelf_life_days": 9999,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "kg",
+    "barcode_ean": "8712345001114",
+    "reorder_point": 80
+  },
+
+  "Oatmeal Biscuit": {
+    "product_id": "P-112",
+    "category": "Breads & Biscuits",
+    "sub_category": "Biscuits",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001121",
+    "reorder_point": 100
+  },
+
+  "Butter Biscuit": {
+    "product_id": "P-113",
+    "category": "Breads & Biscuits",
+    "sub_category": "Biscuits",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001138",
+    "reorder_point": 100
+  },
+
+  "Chocolate Biscuit": {
+    "product_id": "P-114",
+    "category": "Breads & Biscuits",
+    "sub_category": "Biscuits",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001145",
+    "reorder_point": 100
+  },
+
+  "Digestive Biscuit": {
+    "product_id": "P-115",
+    "category": "Breads & Biscuits",
+    "sub_category": "Biscuits",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001152",
+    "reorder_point": 100
+  },
+
+  "Vanilla Biscuit": {
+    "product_id": "P-116",
+    "category": "Breads & Biscuits",
+    "sub_category": "Biscuits",
+    "shelf_life_days": 240,
+    "min_stock": 100,
+    "max_stock": 250,
+    "seasonality": [],
+    "storage_recommendation": "Cool, dry place in an airtight container",
+    "unit_of_measurement": "box",
+    "barcode_ean": "8712345001169",
+    "reorder_point": 100
+  }
+}

@@ -1,0 +1,799 @@
+{
+    "FreshHarvest Ltd.": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits",
+            "Vegetables"
+        ],
+        "distance_km": 84,
+        "products": [
+            "Strawberries",
+            "Mango",
+            "Grapes",
+            "Apricot",
+            "Papaya",
+            "Carrot",
+            "Bell Pepper"
+        ]
+    },
+    "GreenFields Co.": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables",
+            "Leafy Greens"
+        ],
+        "distance_km": 127,
+        "products": [
+            "Spinach",
+            "Lettuce",
+            "Kale",
+            "Cabbage",
+            "Broccoli"
+        ]
+    },
+    "AgroNova": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits",
+            "Vegetables"
+        ],
+        "distance_km": 105,
+        "products": [
+            "Mushrooms",
+            "Cucumber",
+            "Zucchini",
+            "Tomato",
+            "Onion",
+            "Garlic"
+        ]
+    },
+    "BioSupply": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits"
+        ],
+        "distance_km": 421,
+        "products": [
+            "Banana",
+            "Peach",
+            "Plum",
+            "Kiwi",
+            "Orange",
+            "Lemon",
+            "Lime"
+        ]
+    },
+    "UrbanFarmers": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Leafy Greens",
+            "Vegetables"
+        ],
+        "distance_km": 95,
+        "products": [
+            "Spinach",
+            "Lettuce",
+            "Broccoli",
+            "Green Beans"
+        ]
+    },
+    "PrimeProduce": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits",
+            "Vegetables"
+        ],
+        "distance_km": 238,
+        "products": [
+            "Strawberries",
+            "Cauliflower",
+            "Sweet Potato",
+            "Potato"
+        ]
+    },
+    "PureHarvest": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits"
+        ],
+        "distance_km": 174,
+        "products": [
+            "Apricot",
+            "Papaya",
+            "Watermelon",
+            "Apple"
+        ]
+    },
+    "Nature's Basket": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables",
+            "Fruits"
+        ],
+        "distance_km": 786,
+        "products": [
+            "Peas",
+            "Tomato",
+            "Cherry",
+            "Pomegranate"
+        ]
+    },
+    "EcoGrocers": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables",
+            "Leafy Greens"
+        ],
+        "distance_km": 312,
+        "products": [
+            "Kale",
+            "Asparagus",
+            "Broccoli"
+        ]
+    },
+    "MarketGreen Products": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables"
+        ],
+        "distance_km": 365,
+        "products": [
+            "Cauliflower",
+            "Bell Pepper",
+            "Onion"
+        ]
+    },
+    "AgroFresh Foods": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits",
+            "Vegetables"
+        ],
+        "distance_km": 118,
+        "products": [
+            "Grapes",
+            "Papaya",
+            "Carrot",
+            "Garlic"
+        ]
+    },
+    "South Brazil Distributor": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits"
+        ],
+        "distance_km": 88,
+        "products": [
+            "Apple",
+            "Kiwi",
+            "Orange"
+        ]
+    },
+    "SupplyQuick Express": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Leafy Greens"
+        ],
+        "distance_km": 194,
+        "products": [
+            "Lettuce",
+            "Spinach"
+        ]
+    },
+    "Horizon Distributor": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables"
+        ],
+        "distance_km": 158,
+        "products": [
+            "Cabbage",
+            "Sweet Potato"
+        ]
+    },
+    "AgroExpress Supplies": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits",
+            "Vegetables"
+        ],
+        "distance_km": 276,
+        "products": [
+            "Tomato",
+            "Zucchini",
+            "Banana"
+        ]
+    },
+    "SupplyExpress Delivery": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables"
+        ],
+        "distance_km": 119,
+        "products": [
+            "Mushrooms",
+            "Cucumber"
+        ]
+    },
+    "AgroPrime Foods": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits",
+            "Vegetables"
+        ],
+        "distance_km": 101,
+        "products": [
+            "Strawberries",
+            "Peas",
+            "Onion"
+        ]
+    },
+    "Metropolis Distributor": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Leafy Greens",
+            "Vegetables"
+        ],
+        "distance_km": 135,
+        "products": [
+            "Kale",
+            "Green Beans"
+        ]
+    },
+    "AgroExpress Foods": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits"
+        ],
+        "distance_km": 142,
+        "products": [
+            "Papaya",
+            "Cherry"
+        ]
+    },
+    "AgroTop Supplies": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Vegetables"
+        ],
+        "distance_km": 150,
+        "products": [
+            "Broccoli",
+            "Asparagus"
+        ]
+    },
+    "SupplyQuick Commerce": {
+        "category": "Fresh Foods",
+        "subcategories": [
+            "Fruits"
+        ],
+        "distance_km": 1107,
+        "products": [
+            "Watermelon",
+            "Pomegranate"
+        ]
+    },
+    "MegaFood Distributor": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 1720,
+        "products": [
+            "Haddock",
+            "Halibut",
+            "Cod"
+        ]
+    },
+    "SupplyTotal Foods": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 483,
+        "products": [
+            "Tuna",
+            "Sardines"
+        ]
+    },
+    "Northeast Distributor": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 1932,
+        "products": [
+            "Anchovies",
+            "Mackerel"
+        ]
+    },
+    "MasterFood Supplier": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 543,
+        "products": [
+            "Tilapia",
+            "Salmon"
+        ]
+    },
+    "Regional Distributor": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish",
+            "Eggs"
+        ],
+        "distance_km": 312,
+        "products": [
+            "Trout",
+            "Egg (Duck)",
+            "Egg (Chicken)"
+        ]
+    },
+    "SupplyMaster Foods": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 1586,
+        "products": [
+            "Cod",
+            "Tuna"
+        ]
+    },
+    "MegaSupply Commerce": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Eggs"
+        ],
+        "distance_km": 472,
+        "products": [
+            "Egg (Goose)",
+            "Egg (Quail)"
+        ]
+    },
+    "TopLine Supplier": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 206,
+        "products": [
+            "Salmon",
+            "Tilapia"
+        ]
+    },
+    "Southern Distributor": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish",
+            "Eggs"
+        ],
+        "distance_km": 84,
+        "products": [
+            "Trout",
+            "Egg (Chicken)",
+            "Egg (Turkey)"
+        ]
+    },
+    "AgroLeader Foods": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Eggs"
+        ],
+        "distance_km": 189,
+        "products": [
+            "Egg (Quail)",
+            "Egg (Duck)"
+        ]
+    },
+    "MaxFood Supplier": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 1620,
+        "products": [
+            "Haddock",
+            "Halibut"
+        ]
+    },
+    "QualityMax Supplier": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 1173,
+        "products": [
+            "Sardines",
+            "Anchovies"
+        ]
+    },
+    "SupplyMaster Commerce": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Eggs"
+        ],
+        "distance_km": 1346,
+        "products": [
+            "Egg (Chicken)",
+            "Egg (Goose)"
+        ]
+    },
+    "SupplyStrong Foods": {
+        "category": "Meats & Fish",
+        "subcategories": [
+            "Fish"
+        ],
+        "distance_km": 1490,
+        "products": [
+            "Mackerel",
+            "Trout"
+        ]
+    },
+    "Green Gold Distributor": {
+        "category": "Dairy",
+        "subcategories": [
+            "Creams & Yogurts",
+            "Milk"
+        ],
+        "distance_km": 139,
+        "products": [
+            "Heavy Cream",
+            "Cream",
+            "Whipped Cream",
+            "Milk",
+            "Buttermilk"
+        ]
+    },
+    "QualityFood Suppliers": {
+        "category": "Dairy",
+        "subcategories": [
+            "Cheeses"
+        ],
+        "distance_km": 210,
+        "products": [
+            "Feta Cheese",
+            "Mozzarella Cheese",
+            "Swiss Cheese",
+            "Parmesan Cheese"
+        ]
+    },
+    "SupplyEasy Logistics": {
+        "category": "Dairy",
+        "subcategories": [
+            "Milk"
+        ],
+        "distance_km": 654,
+        "products": [
+            "Milk",
+            "Evaporated Milk"
+        ]
+    },
+    "Central Distributor": {
+        "category": "Dairy",
+        "subcategories": [
+            "Cheeses",
+            "Creams & Yogurts"
+        ],
+        "distance_km": 1205,
+        "products": [
+            "Ricotta Cheese",
+            "Cottage Cheese",
+            "Sour Cream"
+        ]
+    },
+    "SupplyTotal Logistics": {
+        "category": "Dairy",
+        "subcategories": [
+            "Milk",
+            "Butter"
+        ],
+        "distance_km": 1237,
+        "products": [
+            "Milk",
+            "Buttermilk",
+            "Butter"
+        ]
+    },
+    "SupplyQuality Foods": {
+        "category": "Dairy",
+        "subcategories": [
+            "Cheeses",
+            "Milk"
+        ],
+        "distance_km": 1210,
+        "products": [
+            "Gouda Cheese",
+            "Cheese",
+            "Milk"
+        ]
+    },
+    "SupplyStrong Distribution": {
+        "category": "Dairy",
+        "subcategories": [
+            "Butter"
+        ],
+        "distance_km": 338,
+        "products": [
+            "Butter"
+        ]
+    },
+    "SupplyQuick Logistics": {
+        "category": "Dairy",
+        "subcategories": [
+            "Creams & Yogurts"
+        ],
+        "distance_km": 498,
+        "products": [
+            "Greek Yogurt",
+            "Yogurt"
+        ]
+    },
+    "SupplyWorld Logistics": {
+        "category": "Dairy",
+        "subcategories": [
+            "Cheeses"
+        ],
+        "distance_km": 621,
+        "products": [
+            "Ricotta Cheese",
+            "Feta Cheese"
+        ]
+    },
+    "AgroEasy Supplies": {
+        "category": "Dairy",
+        "subcategories": [
+            "Milk"
+        ],
+        "distance_km": 265,
+        "products": [
+            "Evaporated Milk",
+            "Milk"
+        ]
+    },
+    "Sunrise Traders": {
+        "category": "Breads & Biscuits",
+        "subcategories": [
+            "Biscuits"
+        ],
+        "distance_km": 1890,
+        "products": [
+            "Oatmeal Biscuit",
+            "Digestive Biscuit"
+        ]
+    },
+    "Metropolitan Distributor": {
+        "category": "Breads & Biscuits",
+        "subcategories": [
+            "Breads"
+        ],
+        "distance_km": 143,
+        "products": [
+            "Rye Bread",
+            "Sourdough Bread"
+        ]
+    },
+    "Plain Distributor": {
+        "category": "Breads & Biscuits",
+        "subcategories": [
+            "Breads",
+            "Biscuits"
+        ],
+        "distance_km": 1254,
+        "products": [
+            "Whole Wheat Bread",
+            "White Bread",
+            "Butter Biscuit"
+        ]
+    },
+    "FarmDirect": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Flours"
+        ],
+        "distance_km": 1098,
+        "products": [
+            "Whole Wheat Flour",
+            "All-Purpose Flour"
+        ]
+    },
+    "NutriSource": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Grains"
+        ],
+        "distance_km": 678,
+        "products": [
+            "Brown Rice",
+            "Black Rice",
+            "Wild Rice"
+        ]
+    },
+    "AgroMarket Paulista": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Grains",
+            "Flours"
+        ],
+        "distance_km": 102,
+        "products": [
+            "Jasmine Rice",
+            "Rice Flour",
+            "Almond Flour"
+        ]
+    },
+    "Premium Supplier": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Grains"
+        ],
+        "distance_km": 1476,
+        "products": [
+            "Long Grain Rice",
+            "Short Grain Rice"
+        ]
+    },
+    "SupplyMax Quality": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Flours"
+        ],
+        "distance_km": 689,
+        "products": [
+            "Bread Flour",
+            "Rice Flour"
+        ]
+    },
+    "SupplyEasy Distribution": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Grains"
+        ],
+        "distance_km": 1398,
+        "products": [
+            "Basmati Rice",
+            "White Rice",
+            "Arborio Rice"
+        ]
+    },
+    "Supreme Supplier": {
+        "category": "Grains & Flours",
+        "subcategories": [
+            "Flours"
+        ],
+        "distance_km": 1756,
+        "products": [
+            "Almond Flour",
+            "Whole Wheat Flour"
+        ]
+    },
+    "GlobalFoods": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Condiments"
+        ],
+        "distance_km": 1450,
+        "products": [
+            "White Sugar",
+            "Raw Sugar",
+            "Powdered Sugar",
+            "Coconut Sugar"
+        ]
+    },
+    "Santa Fe Distributor": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Oils"
+        ],
+        "distance_km": 1427,
+        "products": [
+            "Corn Oil",
+            "Peanut Oil"
+        ]
+    },
+    "SupplyMax Distribution": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Oils"
+        ],
+        "distance_km": 1532,
+        "products": [
+            "Palm Oil",
+            "Canola Oil",
+            "Sesame Oil"
+        ]
+    },
+    "SupplyStrong Logistics": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Condiments"
+        ],
+        "distance_km": 1609,
+        "products": [
+            "White Sugar",
+            "Raw Sugar"
+        ]
+    },
+    "SupplyTotal Commerce": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Oils"
+        ],
+        "distance_km": 1301,
+        "products": [
+            "Sunflower Oil",
+            "Vegetable Oil"
+        ]
+    },
+    "North Brazil Distributor": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Condiments"
+        ],
+        "distance_km": 1943,
+        "products": [
+            "Powdered Sugar",
+            "Coconut Sugar"
+        ]
+    },
+    "Central-West Distributor": {
+        "category": "Oils & Condiments",
+        "subcategories": [
+            "Oils",
+            "Condiments"
+        ],
+        "distance_km": 358,
+        "products": [
+            "Olive Oil",
+            "Avocado Oil",
+            "Coconut Oil",
+            "White Sugar"
+        ]
+    },
+    "WholeMarket": {
+        "category": "Beverages",
+        "subcategories": [
+            "Coffees & Teas"
+        ],
+        "distance_km": 1342,
+        "products": [
+            "Arabica Coffee",
+            "Robusta Coffee"
+        ]
+    },
+    "NatureWell Foods": {
+        "category": "Beverages",
+        "subcategories": [
+            "Coffees & Teas"
+        ],
+        "distance_km": 1349,
+        "products": [
+            "Herbal Tea",
+            "Green Tea"
+        ]
+    },
+    "SupplyWorld Distribution": {
+        "category": "Beverages",
+        "subcategories": [
+            "Coffees & Teas"
+        ],
+        "distance_km": 1701,
+        "products": [
+            "Black Coffee",
+            "White Tea"
+        ]
+    },
+    "Excellence Supplier": {
+        "category": "Beverages",
+        "subcategories": [
+            "Coffees & Teas"
+        ],
+        "distance_km": 1729,
+        "products": [
+            "Black Tea",
+            "Green Coffee"
+        ]
+    }
+}

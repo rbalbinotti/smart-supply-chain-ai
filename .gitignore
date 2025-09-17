@@ -231,4 +231,4 @@ org_cod.py
 # MLflow 
 mlruns/
 
-
+.vscode/

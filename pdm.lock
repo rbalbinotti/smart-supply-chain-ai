@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:726a6f83411ba1bab9a2864ef19c806ce0969cc1016e0079b11b3c8325df68c1"
+content_hash = "sha256:1670f1208c2e260c436ff88d822f4773fa8c8dad122655e16875e8b3123222df"
 
 [[metadata.targets]]
 requires_python = ">=3.11,<3.13"
@@ -1470,6 +1470,20 @@ groups = ["default", "dev"]
 files = [
     {file = "h11-0.16.0-py3-none-any.whl", hash = "sha256:63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"},
     {file = "h11-0.16.0.tar.gz", hash = "sha256:4e35b956cf45792e4caa5885e69fba00bdbc6ffafbfa020300e549b208ee5ff1"},
+]
+
+[[package]]
+name = "holidays"
+version = "0.81"
+requires_python = ">=3.9"
+summary = "Open World Holidays Framework"
+groups = ["default"]
+dependencies = [
+    "python-dateutil",
+]
+files = [
+    {file = "holidays-0.81-py3-none-any.whl", hash = "sha256:1c6657ff50aa760c9503610ad5e81612ae2457d2b70a2291ca61637c938ba919"},
+    {file = "holidays-0.81.tar.gz", hash = "sha256:d4eb4624f5a0a1d6c8f9577f0b6d028d610fedf610c0aeb4942e8730ba090a55"},
 ]
 
 [[package]]

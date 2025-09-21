@@ -1,0 +1,5 @@
+outs:
+- md5: e3b1c0b682e3cc7c9e5a8209d1aa8b03
+  size: 762299
+  hash: md5
+  path: grocery_data.csv

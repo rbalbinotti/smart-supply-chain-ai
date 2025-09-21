@@ -305,6 +305,10 @@ class SupplyChainSimulator:
             # Ensure it doesn't exceed available products
             total_available = len(date_data_in_season) + len(date_data_out_of_season)
             n_products = min(n_products, total_available)
+
+                # Initialize the variables outside the conditional block
+            selected_in_season = pd.DataFrame()
+            selected_out_of_season = pd.DataFrame()
             
             if n_products == 0:
                 # Day without deliveries

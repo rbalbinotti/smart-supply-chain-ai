@@ -3,6 +3,109 @@ import numpy as np
 import ast
 import holidays
 
+def simulate_sales_volume(row):
+    """
+    Simulates the sales volume based on demand, available stock,
+    and external factors such as weather and holidays.
+
+    Parameters:
+        row (dict): A dictionary containing sales-related data, including:
+            - 'adjusted_demand' (float): Demand adjusted for current conditions.
+            - 'is_holiday' (bool): Indicates if the day is a holiday.
+            - 'is_weekend' (bool): Indicates if the day is a weekend.
+            - 'weather_severity' (str): Weather impact level ('High', 'Low', etc.).
+            - 'stock_quantity' (int): Current available stock.
+
+    Returns:
+        int: Simulated sales volume, constrained by available stock.
+
+    Example:
+        >>> import numpy as np
+        >>> row = {
+        ...     'adjusted_demand': 50,
+        ...     'is_holiday': True,
+        ...     'is_weekend': False,
+        ...     'weather_severity': 'High',
+        ...     'stock_quantity': 60
+        ... }
+        >>> simulate_sales_volume(row)
+        47  # (actual output may vary due to randomness)
+    """
+    # Potential sales based on demand with added randomness
+    potential_sales = int(row['adjusted_demand'] + np.random.normal(0, 3))
+
+    # Boost sales if it's a holiday or weekend
+    if row['is_holiday'] or row['is_weekend']:
+        potential_sales = int(potential_sales * np.random.uniform(1.1, 1.3))
+
+    # Reduce sales if weather is severe
+    if row['weather_severity'] == 'High':
+        potential_sales = int(potential_sales * np.random.uniform(0.7, 0.9))
+
+    # Final sales volume cannot exceed available stock and must be non-negative
+    sales = min(max(0, potential_sales), row['stock_quantity'])
+    return sales
+
+
+
+
+def simulate_stock_quantity(row):
+    """
+    Simulates the stock quantity based on demand and seasonality factors.
+    Incorporates randomness and scenarios of stock shortage or surplus.
+
+    Parameters:
+        row (dict): A dictionary containing product-related data, including:
+            - 'is_in_season' (bool): Indicates if the product is in season.
+            - 'max_stock' (float): Maximum stock level.
+            - 'min_stock' (float): Minimum stock level.
+            - 'weather_severity' (str): Weather impact level ('High', 'Low', etc.).
+            - 'adjusted_demand' (float): Demand adjusted for current conditions.
+
+    Returns:
+        int: Simulated stock quantity, ensuring non-negative values.
+
+    Example:
+        >>> import numpy as np
+        >>> row = {
+        ...     'is_in_season': True,
+        ...     'max_stock': 100,
+        ...     'min_stock': 30,
+        ...     'weather_severity': 'Low',
+        ...     'adjusted_demand': 60
+        ... }
+        >>> simulate_stock_quantity(row)
+        45  # (actual output may vary due to randomness)
+    """
+    # Set base stock depending on seasonality
+    if row['is_in_season']:
+        base_stock = row['max_stock'] * 0.8
+    else:
+        base_stock = row['min_stock'] * 1.5
+
+    # Adjust base stock according to weather severity
+    if row['weather_severity'] == 'High':
+        base_stock *= 0.7  # Severe weather may hinder restocking
+    elif row['weather_severity'] == 'Low':
+        base_stock *= 1.1  # Favorable weather may allow higher stock
+
+    # Calculate initial stock and add random noise
+    simulated_stock = base_stock - row['adjusted_demand'] + np.random.normal(0, 5)
+
+    # Introduce intentional scenarios of stock shortage or surplus
+    rand_val = np.random.rand()
+    if rand_val < 0.1:  # 10% chance of stock shortage
+        return np.random.randint(0, int(row['min_stock'] * 0.8))
+    elif rand_val > 0.95:  # 5% chance of stock surplus
+        return np.random.randint(int(row['max_stock'] * 1.2), int(row['max_stock'] * 1.5))
+    else:
+        # Ensure the final value is non-negative
+        return max(0, int(simulated_stock))
+
+
+
+
+
 def classify_weather(df):
     """
     Classifies daily weather conditions based on temperature, precipitation, and wind speed.

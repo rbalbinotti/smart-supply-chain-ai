@@ -8,7 +8,7 @@
     "max_stock": 25,
     "seasonality": ["July", "August", "September", "October", "November"],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000018",
     "reorder_point": 10
     },
@@ -50,7 +50,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000049",
     "reorder_point": 10
     },
@@ -64,7 +64,7 @@
     "max_stock": 25,
     "seasonality": ["January", "February", "March", "April", "May"],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000056",
     "reorder_point": 9
     },
@@ -78,7 +78,7 @@
     "max_stock": 25,
     "seasonality": ["December", "January", "February"],
     "storage_recommendation": "Room temperature until ripe, then refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000063",
     "reorder_point": 6
     },
@@ -134,7 +134,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Room temperature, away from other fruits",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000100",
     "reorder_point": 15
     },
@@ -148,7 +148,7 @@
     "max_stock": 25,
     "seasonality": ["November", "December", "January", "February"],
     "storage_recommendation": "Room temperature until ripe, then refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000117",
     "reorder_point": 8
     },
@@ -190,7 +190,7 @@
     "max_stock": 25,
     "seasonality": ["November", "December", "January"],
     "storage_recommendation": "Room temperature until ripe, then refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000148",
     "reorder_point": 6
     },
@@ -204,7 +204,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Room temperature until ripe, then refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000155",
     "reorder_point": 7
     },
@@ -218,7 +218,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Room temperature, away from direct sunlight",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000162",
     "reorder_point": 12
     },
@@ -400,7 +400,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000292",
     "reorder_point": 5
     },
@@ -414,7 +414,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000308",
     "reorder_point": 5
     },
@@ -428,7 +428,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000315",
     "reorder_point": 5
     },
@@ -442,7 +442,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000322",
     "reorder_point": 5
     },
@@ -456,7 +456,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000339",
     "reorder_point": 5
     },
@@ -470,7 +470,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000346",
     "reorder_point": 5
     },
@@ -484,7 +484,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000353",
     "reorder_point": 8
     },
@@ -498,7 +498,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000360",
     "reorder_point": 5
     },
@@ -512,7 +512,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000377",
     "reorder_point": 6
     },
@@ -526,7 +526,7 @@
     "max_stock": 25,
     "seasonality": [],
     "storage_recommendation": "Refrigerated, consume fresh",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000384",
     "reorder_point": 7
     },
@@ -540,7 +540,7 @@
     "max_stock": 25,
     "seasonality": ["September", "October", "November", "December", "January"],
     "storage_recommendation": "Room temperature until ripe, then refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000391",
     "reorder_point": 8
     },
@@ -638,7 +638,7 @@
     "max_stock": 50,
     "seasonality": [],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000469",
     "reorder_point": 25
     },
@@ -652,7 +652,7 @@
     "max_stock": 50,
     "seasonality": ["June", "July", "August"],
     "storage_recommendation": "Room temperature until ripe, then refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000476",
     "reorder_point": 20
     },
@@ -666,7 +666,7 @@
     "max_stock": 50,
     "seasonality": ["May", "June", "July", "August"],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000483",
     "reorder_point": 25
     },
@@ -694,7 +694,7 @@
     "max_stock": 50,
     "seasonality": [],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000506",
     "reorder_point": 20
     },
@@ -708,7 +708,7 @@
     "max_stock": 50,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000513",
     "reorder_point": 25
     },
@@ -722,7 +722,7 @@
     "max_stock": 50,
     "seasonality": ["March", "April", "May", "June"],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000520",
     "reorder_point": 20
     },
@@ -736,7 +736,7 @@
     "max_stock": 50,
     "seasonality": ["December", "January", "February", "March"],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000537",
     "reorder_point": 20
     },
@@ -750,7 +750,7 @@
     "max_stock": 50,
     "seasonality": [],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000544",
     "reorder_point": 30
     },
@@ -778,7 +778,7 @@
     "max_stock": 50,
     "seasonality": [],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000568",
     "reorder_point": 25
     },
@@ -989,7 +989,7 @@
     "max_stock": 100,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place",
-    "unit_of_measurement": "unit",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000711",
     "reorder_point": 40
     },
@@ -1017,7 +1017,7 @@
     "max_stock": 100,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000735",
     "reorder_point": 50
     },
@@ -1031,7 +1031,7 @@
     "max_stock": 100,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000742",
     "reorder_point": 50
     },
@@ -1045,7 +1045,7 @@
     "max_stock": 100,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place or refrigerated",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
 
     "barcode_ean": "8712345000759",
     "reorder_point": 50
@@ -1158,7 +1158,7 @@
     "max_stock": 100,
     "seasonality": [],
     "storage_recommendation": "Refrigerated",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
 
     "barcode_ean": "8712345000834",
     "reorder_point": 40
@@ -1173,7 +1173,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000841",
     "reorder_point": 70
   },
@@ -1187,7 +1187,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000858",
     "reorder_point": 70
   },
@@ -1201,7 +1201,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000865",
     "reorder_point": 100
   },
@@ -1215,7 +1215,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000872",
     "reorder_point": 100
   },
@@ -1229,7 +1229,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000889",
     "reorder_point": 100
   },
@@ -1243,7 +1243,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000896",
     "reorder_point": 80
   },
@@ -1257,7 +1257,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000902",
     "reorder_point": 90
   },
@@ -1271,7 +1271,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000919",
     "reorder_point": 80
   },
@@ -1285,7 +1285,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000926",
     "reorder_point": 60
   },
@@ -1299,7 +1299,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000933",
     "reorder_point": 90
   },
@@ -1313,7 +1313,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000940",
     "reorder_point": 100
   },
@@ -1327,7 +1327,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345000957",
     "reorder_point": 70
   },
@@ -1511,7 +1511,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345001084",
     "reorder_point": 150
   },
@@ -1525,7 +1525,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345001091",
     "reorder_point": 120
   },
@@ -1539,7 +1539,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345001107",
     "reorder_point": 100
   },
@@ -1553,7 +1553,7 @@
     "max_stock": 250,
     "seasonality": [],
     "storage_recommendation": "Cool, dry place in an airtight container",
-    "unit_of_measurement": "kg",
+    "unit_of_measurement": "lb",
     "barcode_ean": "8712345001114",
     "reorder_point": 80
   },

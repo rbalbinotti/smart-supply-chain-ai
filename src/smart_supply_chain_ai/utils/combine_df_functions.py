@@ -27,8 +27,8 @@ class SupplyChainSimulator:
 
     def _create_month_map(self):
         """Creates a sorted dictionary mapping month numbers to names."""
-        month = self.df_weather['LPO'].dt.month.unique()
-        month_name = self.df_weather['LPO'].dt.month_name().unique()
+        month = self.df_weather['date'].dt.month.unique()
+        month_name = self.df_weather['date'].dt.month_name().unique()
         zipped_months = zip(month, month_name)
         return dict(sorted(dict(zipped_months).items()))
 
@@ -141,7 +141,7 @@ class SupplyChainSimulator:
         combined_data = []
         
         for _, weather_row in self.df_weather.iterrows():
-            current_date = weather_row['LPO']
+            current_date = weather_row['date']
             current_month = self.month_map.get(current_date.month, 'Unknown')
 
             for _, product_row in self.df_products.iterrows():
@@ -193,7 +193,7 @@ class SupplyChainSimulator:
         
         return pd.DataFrame(combined_data)
     
-    def create_balanced_delivery(self, max_products_per_day: int = 10, out_of_season_percentage: float = 0.3):
+    def create_balanced_delivery(self, max_products_per_day: int = 50, out_of_season_percentage: float = 0.30):
         """
             Creates a balanced delivery schedule by selecting products for delivery each day,
             considering seasonality, holidays, and weekends.
@@ -300,7 +300,8 @@ class SupplyChainSimulator:
             elif is_weekend:
                 n_products = self.rng.choice([0, 1, 2, 3, 4, 5], p=[0.4, 0.2, 0.15, 0.1, 0.1, 0.05])
             else:
-                n_products = self.rng.integers(3, max_products_per_day)
+                n_products = min(max_products_per_day, len(date_data_in_season) + len(date_data_out_of_season))
+                n_products = self.rng.integers(int(n_products * 0.5), n_products)
             
             # Ensure it doesn't exceed available products
             total_available = len(date_data_in_season) + len(date_data_out_of_season)

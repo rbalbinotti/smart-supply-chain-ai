@@ -3,60 +3,225 @@ import numpy as np
 import ast
 import holidays
 
-def simulate_sales_volume(row):
+
+def simulate_purchase_order_columns(df, random_state=None):
     """
-    Simulates the sales volume based on demand, available stock,
-    and external factors such as weather and holidays.
+    Simulates purchase order-related columns based on product attributes, logistics, and calendar effects.
 
-    Parameters:
-        row (dict): A dictionary containing sales-related data, including:
-            - 'adjusted_demand' (float): Demand adjusted for current conditions.
-            - 'is_holiday' (bool): Indicates if the day is a holiday.
-            - 'is_weekend' (bool): Indicates if the day is a weekend.
-            - 'weather_severity' (str): Weather impact level ('High', 'Low', etc.).
-            - 'stock_quantity' (int): Current available stock.
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        DataFrame containing the following columns:
+        - 'received_date': date when goods were received
+        - 'sales_volume': recent sales volume
+        - 'min_stock': minimum stock threshold
+        - 'shelf_life_days': shelf life of the product in days
+        - 'sales_demand': demand level (e.g., 'High', 'Low', 'Normal')
+        - 'distance_km': delivery distance in kilometers
+        - 'weather_severity': weather impact ('Severe', 'Moderate', 'Mild')
 
-    Returns:
-        int: Simulated sales volume, constrained by available stock.
+    random_state : int, optional
+        Seed for random number generation to ensure reproducibility.
 
-    Example:
-        >>> import numpy as np
-        >>> row = {
-        ...     'adjusted_demand': 50,
-        ...     'is_holiday': True,
-        ...     'is_weekend': False,
-        ...     'weather_severity': 'High',
-        ...     'stock_quantity': 60
-        ... }
-        >>> simulate_sales_volume(row)
-        47  # (actual output may vary due to randomness)
+    Returns
+    -------
+    pandas.DataFrame
+        A DataFrame with simulated purchase order columns:
+        - 'order_date': date the order was placed
+
+    Example
+    -------
+    >>> df = pd.DataFrame({
+    ...     'received_date': ['2025-09-20', '2025-09-21'],
+    ...     'sales_volume': [10, 5],
+    ...     'min_stock': [20, 15],
+    ...     'shelf_life_days': [5, 60],
+    ...     'sales_demand': ['High', 'Low'],
+    ...     'distance_km': [800, 300],
+    ...     'weather_severity': ['Moderate', 'Severe']
+    ... })
+    >>> simulate_purchase_order_columns(df, random_state=42)
+           order_date
+    0 2025-09-13
+    1 2025-09-14
     """
-    # Potential sales based on demand with added randomness
-    potential_sales = int(row['adjusted_demand'] + np.random.normal(0, 3))
+    if random_state is not None:
+        np.random.seed(random_state)
 
-    # Boost sales if it's a holiday or weekend
-    if row['is_holiday'] or row['is_weekend']:
-        potential_sales = int(potential_sales * np.random.uniform(1.1, 1.3))
+    result_df = pd.DataFrame(index=df.index)
 
-    # Reduce sales if weather is severe
-    if row['weather_severity'] == 'High':
-        potential_sales = int(potential_sales * np.random.uniform(0.7, 0.9))
+    def process_order(row):
+        received_date = pd.to_datetime(row['received_date'])
 
-    # Final sales volume cannot exceed available stock and must be non-negative
-    sales = min(max(0, potential_sales), row['stock_quantity'])
-    return sales
+        # Order date: 2 to 10 days before received date
+        days_before = np.random.randint(2, 11)
+        order_date = received_date - pd.Timedelta(days=days_before)
+
+        # Base quantity based on sales and minimum stock
+        base_qty = max(row['sales_volume'] * 5, row['min_stock'] * 2)
+
+        # Adjust for perishability
+        if row['shelf_life_days'] <= 7:
+            order_qty = base_qty * 0.7  # Smaller orders for highly perishable items
+        elif row['shelf_life_days'] <= 30:
+            order_qty = base_qty * 1.0
+        else:
+            order_qty = base_qty * 1.5  # Larger orders for non-perishables
+
+        # Adjust for demand
+        if 'High' in str(row['sales_demand']):
+            order_qty *= 1.3
+        elif 'Low' in str(row['sales_demand']):
+            order_qty *= 0.7
+
+        order_qty = int(round(max(row['min_stock'], order_qty)))
+
+        # Base delay based on distance
+        base_delay = max(1, row['distance_km'] // 400)
+
+        # Weather impact on delay
+        if row['weather_severity'] == 'Severe':
+            base_delay += 3
+        elif row['weather_severity'] == 'Moderate':
+            base_delay += 1
+
+        # Actual delay with variability
+        real_delay = base_delay + np.random.randint(0, 3)
+
+        estimated_delivery = order_date + pd.Timedelta(days=days_before)
+        actual_delivery = order_date + pd.Timedelta(days=days_before + real_delay)
+        delay_days = max(0, (actual_delivery - received_date).days)
+
+        return pd.Series({
+            'order_date': order_date,
+            # Uncomment below to include more columns:
+            # 'order_quantity': order_qty,
+            # 'estimated_delivery_date': estimated_delivery,
+            # 'actual_delivery_date': actual_delivery,
+            # 'delivery_delay_days': delay_days
+        })
+
+    order_data = df.apply(process_order, axis=1)
+    return order_data
+
+
+def simulate_sales_volume(df, random_state=None):
+    """
+    Simulates sales volume for each product based on stock levels, category, shelf life,
+    demand, seasonality, weather, and calendar effects.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        DataFrame containing the following columns:
+        - 'stock_qty': current stock quantity
+        - 'min_stock': minimum stock threshold
+        - 'category': product category (e.g., 'Fresh Foods', 'Dairy')
+        - 'shelf_life_days': shelf life in days
+        - 'sales_demand': demand level (e.g., 'High', 'Low', 'Normal')
+        - 'in_season': boolean indicating if the product is in season
+        - 'weather_severity': weather impact ('Severe', 'Moderate', 'Mild')
+        - 'is_holiday': boolean indicating if the date is a holiday
+        - 'is_weekend': boolean indicating if the date is a weekend
+
+    random_state : int, optional
+        Seed for random number generation to ensure reproducibility.
+
+    Returns
+    -------
+    pandas.Series
+        Simulated sales volume for each row in the DataFrame.
+
+    Example
+    -------
+    >>> df = pd.DataFrame({
+    ...     'stock_qty': [100, 50],
+    ...     'min_stock': [20, 10],
+    ...     'category': ['Fresh Foods', 'Pantry'],
+    ...     'shelf_life_days': [5, 60],
+    ...     'sales_demand': ['High', 'Low'],
+    ...     'in_season': [True, False],
+    ...     'weather_severity': ['Moderate', 'Severe'],
+    ...     'is_holiday': [False, True],
+    ...     'is_weekend': [True, False]
+    ... })
+    >>> simulate_sales_volume(df, random_state=42)
+    0    39
+    1     6
+    dtype: int64
+    """
+    if random_state is not None:
+        np.random.seed(random_state)
+
+    def calculate_sales_per_row(row):
+        stock_qty = row['stock_qty']
+        min_stock = row['min_stock']
+
+        # No stock available → zero sales
+        if stock_qty <= 0:
+            return 0
+
+        # Initialize volatility factor
+        factor = 1.0
+
+        # Category-based adjustment
+        if row['category'] in ['Fresh Foods', 'Dairy']:
+            factor *= 1.3
+
+        # Shelf life adjustment
+        if row['shelf_life_days'] <= 7:
+            factor *= 1.5
+        elif row['shelf_life_days'] <= 30:
+            factor *= 1.2
+
+        # Demand adjustment
+        if 'High' in str(row['sales_demand']):
+            factor *= 1.4
+        elif 'Low' in str(row['sales_demand']):
+            factor *= 0.7
+
+        # Seasonality adjustment
+        if row['in_season']:
+            factor *= 1.3
+
+        # Weather impact
+        if row['weather_severity'] == 'Severe':
+            factor *= 0.6
+        elif row['weather_severity'] == 'Moderate':
+            factor *= 0.9
+
+        # Calendar effects
+        if row['is_holiday']:
+            factor *= 1.2
+        elif row['is_weekend']:
+            factor *= 1.1
+
+        # Base sales calculation
+        base_sales = max(0, stock_qty - min_stock)
+        mean_sales = base_sales * 0.3 * factor if base_sales > 0 else min_stock * 0.1
+
+        # Add noise (40% volatility)
+        volatility = mean_sales * 0.4
+        simulated_sales = np.random.normal(mean_sales, volatility)
+
+        # Clamp to valid range and round
+        simulated_sales = max(0, min(simulated_sales, stock_qty))
+        return int(round(simulated_sales))
+
+    return df.apply(calculate_sales_per_row, axis=1)
 
 
 
 
-def simulate_stock_quantity(row):
+
+def simulate_stock_quantity(row: dict):
     """
     Simulates the stock quantity based on demand and seasonality factors.
     Incorporates randomness and scenarios of stock shortage or surplus.
 
     Parameters:
         row (dict): A dictionary containing product-related data, including:
-            - 'is_in_season' (bool): Indicates if the product is in season.
+            - 'in_season' (bool): Indicates if the product is in season.
             - 'max_stock' (float): Maximum stock level.
             - 'min_stock' (float): Minimum stock level.
             - 'weather_severity' (str): Weather impact level ('High', 'Low', etc.).
@@ -68,7 +233,7 @@ def simulate_stock_quantity(row):
     Example:
         >>> import numpy as np
         >>> row = {
-        ...     'is_in_season': True,
+        ...     'in_season': True,
         ...     'max_stock': 100,
         ...     'min_stock': 30,
         ...     'weather_severity': 'Low',
@@ -78,7 +243,7 @@ def simulate_stock_quantity(row):
         45  # (actual output may vary due to randomness)
     """
     # Set base stock depending on seasonality
-    if row['is_in_season']:
+    if row['in_season']:
         base_stock = row['max_stock'] * 0.8
     else:
         base_stock = row['min_stock'] * 1.5
@@ -104,282 +269,107 @@ def simulate_stock_quantity(row):
 
 
 
-
-
-def classify_weather(df):
+def classify_grocery_demand(dates: pd.Series, country: str = 'BR') -> pd.Series:
     """
-    Classifies daily weather conditions based on temperature, precipitation, and wind speed.
-
-    This function adds four new columns to the input DataFrame:
-    - 'daily_average_temperature_c': the average of daily max and min temperatures
-    - 'temperature_classification': descriptive label for temperature range
-    - 'precipitation_classification': descriptive label for precipitation intensity
-    - 'wind_classification': descriptive label for wind strength
-    - 'weather_severity': overall severity level based on combined conditions
+    Classifies grocery demand levels based on date characteristics and national holidays.
 
     Parameters:
-    df (pandas.DataFrame): A DataFrame containing the following columns:
-        - 'daily_maximum_temperature_c'
-        - 'daily_minimum_temperature_c'
-        - 'daily_total_precipitation_mm'
-        - 'daily_average_wind_speed_mps'
+    ----------
+    dates : pd.Series
+        A pandas Series of datetime objects representing transaction or delivery dates.
+    country : str, optional
+        A two-letter country code (ISO 3166-1 alpha-2) used to determine holidays.
+        Defaults to 'BR' (Brazil).
 
     Returns:
-    pandas.DataFrame: The original DataFrame with additional classification columns.
+    -------
+    pd.Series
+        A Series of strings indicating demand classification for each date:
+        - 'High (Holiday)' if the date is a national holiday
+        - 'High (Beginning of Month)' if the day is between the 1st and 5th
+        - 'High (Weekend)' if the date falls on Saturday or Sunday
+        - 'Normal' otherwise
 
     Example:
+    -------
     >>> import pandas as pd
-    >>> data = {
-    ...     'daily_maximum_temperature_c': [25, -2],
-    ...     'daily_minimum_temperature_c': [15, -8],
-    ...     'daily_total_precipitation_mm': [5, 60],
-    ...     'daily_average_wind_speed_mps': [3, 30]
-    ... }
-    >>> df = pd.DataFrame(data)
-    >>> classified_df = classify_weather(df)
-    >>> print(classified_df[['temperature_classification', 'precipitation_classification', 'wind_classification', 'weather_severity']])
+    >>> from datetime import datetime
+    >>> dates = pd.Series([datetime(2025, 1, 1), datetime(2025, 1, 3), datetime(2025, 1, 4), datetime(2025, 1, 6)])
+    >>> classify_grocery_demand(dates, country='BR')
+    0         High (Holiday)
+    1    High (Beginning of Month)
+    2         High (Weekend)
+    3                Normal
+    dtype: object
     """
+    country_holidays = holidays.country_holidays(country)
+
+    def classify_single(date):
+        if date in country_holidays:
+            return 'Very High)'
+        elif 1 <= date.day <= 5:
+            return 'High'
+        elif date.weekday() >= 5:  # Saturday or Sunday
+            return 'High'
+        else:
+            return 'Normal'
     
-    def classify_temperature(avg_temp):
-        # Categorize temperature based on average value
-        if avg_temp < 5:
-            return "Very Cold"
-        elif avg_temp <= 11:
-            return "Cold"
-        elif avg_temp <= 17:
-            return "Cool"
-        elif avg_temp <= 24:
-            return "Mild to Temperate"
-        elif avg_temp <= 29:
-            return "Warm"
-        elif avg_temp <= 35:
-            return "Hot"
-        else:
-            return "Very Hot"
-
-    def classify_precipitation(precip):
-        # Categorize precipitation intensity
-        if precip == 0:
-            return "No Precipitation"
-        elif precip < 2.5:
-            return "Light Rain"
-        elif precip < 10:
-            return "Moderate Rain"
-        elif precip < 50:
-            return "Heavy Rain"
-        else:
-            return "Violent Rainfall"
-
-    def classify_wind(wind):
-        # Categorize wind strength
-        if wind <= 1.5:
-            return "Calm / Light Breeze"
-        elif wind <= 5.4:
-            return "Gentle to Fresh Breeze"
-        elif wind <= 10.7:
-            return "Moderate to Strong Wind"
-        elif wind <= 24.4:
-            return "Very Strong Wind / Gale"
-        else:
-            return "Storm / Hurricane Force"
-
-    def classify_severity(avg_temp, precip, wind):
-        # Determine overall severity based on thresholds
-        temp_extreme = avg_temp < -5 or avg_temp > 40
-        temp_intense = avg_temp < 0 or avg_temp > 30
-        rain_severe = precip >= 10
-        rain_extreme = precip >= 50
-        wind_severe = wind >= 10.8
-        wind_extreme = wind >= 24.5
-
-        if temp_extreme or (rain_extreme and wind_extreme):
-            return "Catastrophic"
-        elif temp_intense and (rain_extreme or wind_extreme):
-            return "Extreme"
-        elif temp_intense or rain_severe or wind_severe:
-            return "Severe"
-        elif (avg_temp < 10 or avg_temp > 25) or \
-             (0 < precip < 10) or \
-             (1.5 < wind <= 10.7):
-            return "Moderate"
-        else:
-            return "Normal"
-
-    df_copy = df.copy()
-
-    # Calculate daily average temperature
-    df_copy["daily_average_temperature_c"] = (
-        df_copy["daily_maximum_temperature_c"] + df_copy["daily_minimum_temperature_c"]
-    ) / 2
-
-    # Apply classification functions to each relevant column
-    df_copy["temperature_classification"] = df_copy["daily_average_temperature_c"].apply(classify_temperature)
-    df_copy["precipitation_classification"] = df_copy["daily_total_precipitation_mm"].apply(classify_precipitation)
-    df_copy["wind_classification"] = df_copy["daily_average_wind_speed_mps"].apply(classify_wind)
-
-    # Apply severity classification using multiple weather parameters
-    df_copy["weather_severity"] = df_copy.apply(
-        lambda row: classify_severity(
-            row["daily_average_temperature_c"],
-            row["daily_total_precipitation_mm"],
-            row["daily_average_wind_speed_mps"]
-        ),
-        axis=1
-    )
-
-    return df_copy
+    return dates.apply(classify_single)
 
 
-def simulate_weather(date):
+
+
+
+def day_classification(dates: pd.Series, country: str = 'BR') -> pd.Series:
     """
-    Simulates weather conditions based on the date, considering seasonal patterns in the Southern Hemisphere.
-    
-    Parameters:
-        date (datetime): A datetime object representing the date for which to simulate the weather.
-    
-    Returns:
-        tuple: A tuple containing:
-            - temperature (int): Simulated temperature in degrees Celsius.
-            - precipitation (int): Simulated precipitation in millimeters.
-            - condition (str): A string describing the general weather condition.
-    """
-    month = date.month
-
-    # Simulate summer (Dec–Mar)
-    if month in [12, 1, 2, 3]:
-        temperature = np.random.randint(15, 41)
-        precipitation = np.random.choice([0, 5, 10, 20], p=[0.5, 0.25, 0.15, 0.1])
-        condition = 'Rain and Heat' if precipitation > 0 else 'Sun and Heat'
-
-    # Simulate autumn (Apr–Jun)
-    elif month in [4, 5, 6]:
-        temperature = np.random.randint(5, 34)
-        precipitation = np.random.choice([0, 2, 5], p=[0.7, 0.2, 0.1])
-        condition = 'Rainy' if precipitation > 0 else 'Pleasant'
-
-    # Simulate winter (Jul–Sep)
-    elif month in [7, 8, 9]:
-        temperature = np.random.randint(-8, 30)
-        precipitation = np.random.choice([0, 1, 3], p=[0.8, 0.15, 0.05])
-        condition = 'Cold and Rainy' if precipitation > 0 else 'Cold'
-
-    # Simulate spring (Oct–Nov)
-    else:  # month in [10, 11]
-        temperature = np.random.randint(10, 39)
-        precipitation = np.random.choice([0, 5, 10], p=[0.6, 0.3, 0.1])
-        condition = 'Unstable' if precipitation > 0 else 'Pleasant'
-
-    return temperature, precipitation, condition
-
-
-
-
-
-
-
-
-def classify_grocery_demand(date):
-    """
-    Classifies a given date according to typical grocery demand patterns.
+    Classifies each date in a pandas Series as 'Holiday', 'Saturday', 'Sunday', or 'Weekdays' 
+    based on the specified country's holiday calendar.
 
     Parameters:
     ----------
-    date : datetime-like
-        The date to be classified.
+    dates : pd.Series
+        A pandas Series of datetime objects to classify.
+    country : str, optional
+        A two-letter country code (ISO 3166-1 alpha-2) used to determine holidays. 
+        Defaults to 'BR' (Brazil).
 
     Returns:
     -------
-    str
-        A string indicating the demand level:
-        - 'High Demand (Holiday)' for major holidays like Christmas, New Year's, and Easter
-        - 'High Demand (Festa Junina)' for seasonal spikes in June
-        - 'High Demand (Beginning of Month)' for payment-related demand between the 1st and 5th
-        - 'High Demand (Weekend)' for Saturdays and Sundays
-        - 'Normal Demand' for all other dates
+    pd.Series
+        A Series of strings indicating the classification of each date.
 
     Example:
-    --------
-    >>> import datetime
-    >>> classify_grocery_demand(datetime.date(2025, 12, 25))
-    'High Demand (Holiday)'
-    """
-
-    # 1. Major holidays (sales peaks)
-    important_holidays = {
-        '2023-04-09', '2024-03-31', '2025-04-20',  # Easter
-        '2023-12-24', '2023-12-25', '2023-12-31', '2024-01-01',  # Christmas and New Year
-        '2024-12-24', '2024-12-25', '2024-12-31', '2025-01-01',
-        '2025-12-24', '2025-12-25', '2025-12-31', '2026-01-01'
-    }
-
-    # 2. Seasonal period (e.g., Festa Junina in June)
-    if date.month == 6:
-        return 'High Demand (Festa Junina)'
-
-    # 3. Payment cycle (spikes at the beginning of the month)
-    if 1 <= date.day <= 5:
-        return 'High Demand (Beginning of Month)'
-
-    # 4. Weekends (typical high demand)
-    if date.weekday() >= 5:  # Saturday or Sunday
-        return 'High Demand (Weekend)'
-
-    # 5. Specific commemorative dates
-    if date.strftime('%Y-%m-%d') in important_holidays:
-        return 'High Demand (Holiday)'
-
-    # Default case
-    return 'Normal Demand'
-
-
-
-def day_classification(date):
-    """
-    Classifies a given date as 'Holiday', 'Saturday', 'Sunday', or 'Weekdays' based on Brazilian calendar.
-
-    Parameters:
-    ----------
-    date : datetime-like
-        The date to be classified.
-
-    Returns:
     -------
-    str
-        A string indicating the type of day:
-        - 'Holiday' if the date is a recognized Brazilian public holiday
-        - 'Saturday' if the date falls on a Saturday
-        - 'Sunday' if the date falls on a Sunday
-        - 'Weekdays' for Monday through Friday (excluding holidays)
-    
-    Example:
-    --------
-    >>> import datetime
-    >>> day_classification(datetime.date(2025, 9, 7))
-    'Holiday'  # Brazilian Independence Day
+    >>> import pandas as pd
+    >>> from datetime import datetime
+    >>> dates = pd.Series([datetime(2025, 1, 1), datetime(2025, 1, 4), datetime(2025, 1, 5), datetime(2025, 1, 6)])
+    >>> day_classification(dates, country='BR')
+    0     Holiday
+    1    Saturday
+    2      Sunday
+    3    Weekdays
+    dtype: object
     """
+    country_holidays = holidays.country_holidays(country)
 
-    # Load Brazilian public holidays
-    country_holidays = holidays.CountryHoliday('Brazil')
-
-    # Check if the date is a holiday
-    if date in country_holidays:
-        return 'Holiday'
-    # Check if the date is a Saturday
-    elif date.dayofweek == 5:
-        return 'Saturday'
-    # Check if the date is a Sunday
-    elif date.dayofweek == 6:
-        return 'Sunday'
-    # Otherwise, it's a weekday
-    else:
-        return 'Weekdays'
+    def classify_single(date):
+        if date in country_holidays:
+            return 'Holiday'
+        elif date.dayofweek == 5:
+            return 'Saturday'
+        elif date.dayofweek == 6:
+            return 'Sunday'
+        else:
+            return 'Weekdays'
+        
+    return dates.apply(classify_single)
 
 
 
 
-def create_stock_distribution_vectorized(stock_min, stock_max, seed=None, 
-                                         prob_stock=[0.12, 0.28, 0.60],
-                                         prob_extreme=[0.68, 0.27, 0.05]):
+def create_stock_distribution_vectorized(stock_min, stock_max, seed: int=None, 
+                                         prob_stock: list=[0.12, 0.28, 0.60],
+                                         prob_extreme: list=[0.68, 0.27, 0.05]):
     """
     Generates a vector of stock quantities based on probabilistic conditions: 'out of stock', 'overstocked', or 'normal',
     applied element-wise to input vectors.

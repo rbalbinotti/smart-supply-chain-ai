@@ -161,8 +161,11 @@ def simulate_sales_volume(df, random_state=None):
 
         # Category-specific base turnover targets
         base_turnover = {
+            'Oils & Condiments': 1.1,
+            'Grains & Flours': 1.3,
+            'Breads & Biscuits': 3.0,
             'Fresh Foods': 2.5,      # Very high - multiple restocks per day
-            'Dairy': 2.0,           # High - daily restocking
+            'Dairy': 2.2,           # High - daily restocking
             'Beverages': 1.8,       # High-medium
             'Bakery': 3.0,          # Very high (fresh bread)
             'Pantry': 1.2,          # Medium
@@ -179,7 +182,7 @@ def simulate_sales_volume(df, random_state=None):
             base_potential = stock_qty
 
         # Shelf life criticality
-        if row['shelf_life_days'] <= 1:  # Ultra fresh
+        if row['shelf_life_days'] <= 2:  # Ultra fresh
             turnover_factor *= 3.0
         elif row['shelf_life_days'] <= 3:
             turnover_factor *= 2.5
@@ -206,9 +209,11 @@ def simulate_sales_volume(df, random_state=None):
 
         # Weather adjustment (milder impact for high-turnover goods)
         weather_multiplier = {
+            'Catastrophic': 0.1,
+            'Extreme': 0.6,
             'Severe': 0.8,
             'Moderate': 0.95,
-            'Mild': 1.0
+            'Normal': 1.0
         }
         turnover_factor *= weather_multiplier.get(row['weather_severity'], 1.0)
 
@@ -319,7 +324,7 @@ def classify_grocery_demand(dates: pd.Series, country: str = 'BR') -> pd.Series:
 
     def classify_single(date):
         if date in country_holidays:
-            return 'Very High)'
+            return 'Very High'
         elif 1 <= date.day <= 5:
             return 'High'
         elif date.weekday() >= 5:  # Saturday or Sunday

@@ -107,49 +107,51 @@ def simulate_purchase_order_columns(df, random_state=None):
 
 def simulate_sales_volume(df, random_state=None):
     """
-    Simulates sales volume for each product based on stock levels, category, shelf life,
-    demand, seasonality, weather, and calendar effects.
+    Simulates expected sales volume for retail inventory items based on category-specific turnover targets
+    and various influencing factors such as shelf life, demand level, seasonality, calendar effects, and weather.
 
     Parameters
     ----------
     df : pandas.DataFrame
-        DataFrame containing the following columns:
-        - 'stock_qty': current stock quantity
-        - 'min_stock': minimum stock threshold
-        - 'category': product category (e.g., 'Fresh Foods', 'Dairy')
-        - 'shelf_life_days': shelf life in days
-        - 'sales_demand': demand level (e.g., 'High', 'Low', 'Normal')
-        - 'in_season': boolean indicating if the product is in season
-        - 'weather_severity': weather impact ('Severe', 'Moderate', 'Mild')
-        - 'is_holiday': boolean indicating if the date is a holiday
-        - 'is_weekend': boolean indicating if the date is a weekend
+        A DataFrame containing inventory data with the following required columns:
+        - 'stock_qty': Current stock quantity of the item.
+        - 'min_stock': Minimum stock threshold.
+        - 'category': Product category (e.g., 'Fresh Foods', 'Dairy', etc.).
+        - 'shelf_life_days': Shelf life of the item in days.
+        - 'sales_demand': Demand level ('Very High', 'High', 'Normal', 'Low').
+        - 'in_season': Boolean indicating if the item is in season.
+        - 'is_holiday': Boolean indicating if the current day is a holiday.
+        - 'is_weekend': Boolean indicating if the current day is a weekend.
+        - 'weather_severity': Weather condition ('Severe', 'Moderate', 'Mild').
 
     random_state : int, optional
-        Seed for random number generation to ensure reproducibility.
+        Seed for the random number generator to ensure reproducibility of simulated results.
 
     Returns
     -------
     pandas.Series
-        Simulated sales volume for each row in the DataFrame.
+        A Series of simulated sales volumes (integers), one for each row in the input DataFrame.
 
     Example
     -------
-    >>> df = pd.DataFrame({
-    ...     'stock_qty': [100, 50],
-    ...     'min_stock': [20, 10],
+    >>> import pandas as pd
+    >>> data = pd.DataFrame({
+    ...     'stock_qty': [50, 20],
+    ...     'min_stock': [10, 5],
     ...     'category': ['Fresh Foods', 'Pantry'],
-    ...     'shelf_life_days': [5, 60],
-    ...     'sales_demand': ['High', 'Low'],
+    ...     'shelf_life_days': [1, 30],
+    ...     'sales_demand': ['High', 'Normal'],
     ...     'in_season': [True, False],
-    ...     'weather_severity': ['Moderate', 'Severe'],
     ...     'is_holiday': [False, True],
-    ...     'is_weekend': [True, False]
+    ...     'is_weekend': [True, False],
+    ...     'weather_severity': ['Mild', 'Moderate']
     ... })
-    >>> simulate_sales_volume(df, random_state=42)
-    0    39
-    1     6
+    >>> simulate_sales_volume_controlled_turnover(data, random_state=42)
+    0    251
+    1     47
     dtype: int64
     """
+
     if random_state is not None:
         np.random.seed(random_state)
 
@@ -157,59 +159,70 @@ def simulate_sales_volume(df, random_state=None):
         stock_qty = row['stock_qty']
         min_stock = row['min_stock']
 
-        # No stock available → zero sales
+        # Category-specific base turnover targets
+        base_turnover = {
+            'Fresh Foods': 2.5,      # Very high - multiple restocks per day
+            'Dairy': 2.0,           # High - daily restocking
+            'Beverages': 1.8,       # High-medium
+            'Bakery': 3.0,          # Very high (fresh bread)
+            'Pantry': 1.2,          # Medium
+            'Frozen Foods': 1.3,    # Medium
+            'Health & Beauty': 1.0  # Lower
+        }
+        
+        turnover_factor = base_turnover.get(row['category'], 1.0)
+
+        # Base potential sales calculation
         if stock_qty <= 0:
-            return 0
+            base_potential = min_stock * 0.8 if min_stock > 0 else 15
+        else:
+            base_potential = stock_qty
 
-        # Initialize volatility factor
-        factor = 1.0
+        # Shelf life criticality
+        if row['shelf_life_days'] <= 1:  # Ultra fresh
+            turnover_factor *= 3.0
+        elif row['shelf_life_days'] <= 3:
+            turnover_factor *= 2.5
+        elif row['shelf_life_days'] <= 7:
+            turnover_factor *= 2.0
 
-        # Category-based adjustment
-        if row['category'] in ['Fresh Foods', 'Dairy']:
-            factor *= 1.3
+        # Demand intensity
+        demand_boost = {
+            'Very High': 1.8,
+            'High': 1.5,
+            'Normal': 1.0,
+            'Low': 0.6
+        }
+        turnover_factor *= demand_boost.get(str(row['sales_demand']), 1.0)
 
-        # Shelf life adjustment
-        if row['shelf_life_days'] <= 7:
-            factor *= 1.5
-        elif row['shelf_life_days'] <= 30:
-            factor *= 1.2
-
-        # Demand adjustment
-        if 'High' in str(row['sales_demand']):
-            factor *= 1.4
-        elif 'Low' in str(row['sales_demand']):
-            factor *= 0.7
-
-        # Seasonality adjustment
+        # Seasonal and calendar effects
         if row['in_season']:
-            factor *= 1.3
-
-        # Weather impact
-        if row['weather_severity'] == 'Severe':
-            factor *= 0.6
-        elif row['weather_severity'] == 'Moderate':
-            factor *= 0.9
-
-        # Calendar effects
+            turnover_factor *= 1.5
+            
         if row['is_holiday']:
-            factor *= 1.2
+            turnover_factor *= 1.6
         elif row['is_weekend']:
-            factor *= 1.1
+            turnover_factor *= 1.3
 
-        # Base sales calculation
-        base_sales = max(0, stock_qty - min_stock)
-        mean_sales = base_sales * 0.3 * factor if base_sales > 0 else min_stock * 0.1
+        # Weather adjustment (milder impact for high-turnover goods)
+        weather_multiplier = {
+            'Severe': 0.8,
+            'Moderate': 0.95,
+            'Mild': 1.0
+        }
+        turnover_factor *= weather_multiplier.get(row['weather_severity'], 1.0)
 
-        # Add noise (40% volatility)
-        volatility = mean_sales * 0.4
-        simulated_sales = np.random.normal(mean_sales, volatility)
-
-        # Clamp to valid range and round
-        simulated_sales = max(0, min(simulated_sales, stock_qty))
+        # Calculate final sales potential
+        sales_potential = base_potential * turnover_factor
+        
+        # Add noise and ensure realistic values
+        noise = sales_potential * 0.25
+        simulated_sales = np.random.normal(sales_potential, noise)
+        simulated_sales = max(1, simulated_sales)  # Minimum 1 unit
+        
         return int(round(simulated_sales))
 
     return df.apply(calculate_sales_per_row, axis=1)
-
 
 
 

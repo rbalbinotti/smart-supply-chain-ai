@@ -4,6 +4,71 @@ import ast
 import holidays
 
 
+def create_min_max_stock(
+    df: pd.DataFrame,
+    base_min: pd.Series,
+    base_max: pd.Series,
+    base_reorder: pd.Series
+) -> pd.DataFrame:
+    """
+    Generates randomized minimum stock, maximum stock, and reorder point values for inventory items,
+    and appends them as new columns to the input DataFrame.
+
+    Parameters:
+    ----------
+    df : pd.DataFrame
+        The original DataFrame containing inventory items.
+    base_min : pd.Series
+        Base minimum stock levels for each item.
+    base_max : pd.Series
+        Base maximum stock levels for each item.
+    base_reorder : pd.Series
+        Base reorder point levels for each item.
+
+    Returns:
+    -------
+    pd.DataFrame
+        The input DataFrame with three new columns:
+        - 'min_stock': randomized minimum stock (clipped to at least 1)
+        - 'max_stock': randomized maximum stock (at least one unit above min_stock)
+        - 'reorder_point': randomized reorder point (between min_stock + 1 and max_stock - 1)
+
+    Notes:
+    -----
+    - Randomness is seeded with 42 for reproducibility.
+    - Random variation is applied in the range [-2, 1] to each base value.
+
+    Example:
+    --------
+    >>> import pandas as pd
+    >>> import numpy as np
+    >>> data = pd.DataFrame({'item': ['A', 'B', 'C']})
+    >>> base_min = pd.Series([5, 10, 15])
+    >>> base_max = pd.Series([20, 25, 30])
+    >>> base_reorder = pd.Series([10, 15, 20])
+    >>> create_min_max_stock(data, base_min, base_max, base_reorder)
+       item  min_stock  max_stock  reorder_point
+    0     A          4         20             10
+    1     B          9         25             15
+    2     C         14         30             20
+    """
+
+    rng = np.random.default_rng(seed=42)
+
+    # Apply random variation to base values
+    min_stock = base_min + rng.integers(-2, 2, size=len(base_min))
+    max_stock = base_max + rng.integers(-2, 2, size=len(base_max))
+    reorder_point = base_reorder + rng.integers(-2, 2, size=len(base_reorder))
+
+    # Ensure logical constraints
+    df['min_stock'] = min_stock.clip(lower=1)
+    df['max_stock'] = np.maximum(min_stock + 1, max_stock)
+    df['reorder_point'] = np.maximum(min_stock + 1, np.minimum(reorder_point, max_stock - 1))
+
+    return df
+
+
+
 def simulate_purchase_order_columns(df, random_state=None):
     """
     Simulates purchase order-related columns based on product attributes, logistics, and calendar effects.
@@ -114,7 +179,7 @@ def simulate_sales_volume(df, random_state=None):
     ----------
     df : pandas.DataFrame
         A DataFrame containing inventory data with the following required columns:
-        - 'stock_qty': Current stock quantity of the item.
+        - 'stock_quantity': Current stock quantity of the item.
         - 'min_stock': Minimum stock threshold.
         - 'category': Product category (e.g., 'Fresh Foods', 'Dairy', etc.).
         - 'shelf_life_days': Shelf life of the item in days.
@@ -136,7 +201,7 @@ def simulate_sales_volume(df, random_state=None):
     -------
     >>> import pandas as pd
     >>> data = pd.DataFrame({
-    ...     'stock_qty': [50, 20],
+    ...     'stock_quantity': [50, 20],
     ...     'min_stock': [10, 5],
     ...     'category': ['Fresh Foods', 'Pantry'],
     ...     'shelf_life_days': [1, 30],
@@ -156,7 +221,7 @@ def simulate_sales_volume(df, random_state=None):
         np.random.seed(random_state)
 
     def calculate_sales_per_row(row):
-        stock_qty = row['stock_qty']
+        stock_quantity = row['stock_quantity']
         min_stock = row['min_stock']
 
         # Category-specific base turnover targets
@@ -176,10 +241,10 @@ def simulate_sales_volume(df, random_state=None):
         turnover_factor = base_turnover.get(row['category'], 1.0)
 
         # Base potential sales calculation
-        if stock_qty <= 0:
+        if stock_quantity <= 0:
             base_potential = min_stock * 0.8 if min_stock > 0 else 15
         else:
-            base_potential = stock_qty
+            base_potential = stock_quantity
 
         # Shelf life criticality
         if row['shelf_life_days'] <= 2:  # Ultra fresh

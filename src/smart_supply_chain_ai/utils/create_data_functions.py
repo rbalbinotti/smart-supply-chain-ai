@@ -2,6 +2,80 @@ import pandas as pd
 import numpy as np
 import ast
 import holidays
+import math
+
+
+def estimate_delivery_days(row):
+    """
+    Estimates a realistic delivery time (in days) for a given order,
+    incorporating processing time, transit duration based on distance,
+    weather impact, and calendar-based delays.
+
+    Parameters:
+    -----------
+    row : pandas.Series
+        A row from a DataFrame containing:
+        - 'distance_km': float, delivery distance in kilometers
+        - 'weather_severity': str, one of ['Normal', 'Moderate', 'Severe']
+        - 'day_classification': str, one of ['Weekdays', 'Saturday', 'Sunday', 'Holiday']
+
+    Returns:
+    --------
+    float
+        Estimated delivery time in days, rounded to two decimal places.
+
+    Example:
+    --------
+    >>> df = pd.DataFrame({
+    ...     'distance_km': [45, 180, 800, 1200],
+    ...     'weather_severity': ['Normal', 'Moderate', 'Severe', 'Normal'],
+    ...     'day_classification': ['Weekdays', 'Saturday', 'Sunday', 'Holiday']
+    ... })
+    >>> df['delivery_days'] = df.apply(estimate_delivery_days_realistic, axis=1)
+    >>> print(df)
+       distance_km weather_severity day_classification  delivery_days
+    0         45.0           Normal           Weekdays           2.13
+    1        180.0         Moderate           Saturday           4.67
+    2        800.0           Severe             Sunday           9.85
+    3       1200.0           Normal             Holiday          14.32
+    """
+
+    # 1. Simulate processing time (e.g., picking, packing, dispatch)
+    processing_days = np.random.uniform(1.0, 2.0)
+
+    # 2. Transit time based on distance (simulating business days)
+    if row['distance_km'] <= 50:
+        transit_days = np.random.uniform(0.5, 1.5)
+    elif row['distance_km'] <= 150:
+        transit_days = np.random.uniform(1.0, 2.5)
+    elif row['distance_km'] <= 400:
+        transit_days = np.random.uniform(2.0, 4.0)
+    elif row['distance_km'] <= 1000:
+        transit_days = np.random.uniform(4.0, 8.0)
+    else:
+        transit_days = np.random.uniform(7.0, 15.0)
+
+    base_days = processing_days + transit_days
+
+    # 3. Weather impact multiplier
+    weather_factor = {
+        "Normal": 1.0,
+        "Moderate": 1.15,
+        "Severe": 1.3
+    }.get(row['weather_severity'], 1.0)
+
+    # 4. Additional delay based on day classification
+    day_adjustment = {
+        "Weekdays": 0.0,
+        "Saturday": 0.5,
+        "Sunday": 1.0,
+        "Holiday": 1.5
+    }.get(row['day_classification'], 0.0)
+
+    # 5. Final delivery time calculation
+    delivery_days = base_days * weather_factor + day_adjustment
+    return math.ceil(delivery_days)
+
 
 
 def create_min_max_stock(
@@ -170,91 +244,86 @@ def simulate_purchase_order_columns(df, random_state=None):
     return order_data
 
 
+
 def simulate_sales_volume(df, random_state=None):
     """
-    Simulates expected sales volume for retail inventory items based on category-specific turnover targets
-    and various influencing factors such as shelf life, demand level, seasonality, calendar effects, and weather.
+    Simulates expected sales volume for each product row in a DataFrame based on multiple influencing factors.
 
-    Parameters
-    ----------
+    Parameters:
+    -----------
     df : pandas.DataFrame
-        A DataFrame containing inventory data with the following required columns:
-        - 'stock_quantity': Current stock quantity of the item.
-        - 'min_stock': Minimum stock threshold.
-        - 'category': Product category (e.g., 'Fresh Foods', 'Dairy', etc.).
-        - 'shelf_life_days': Shelf life of the item in days.
-        - 'sales_demand': Demand level ('Very High', 'High', 'Normal', 'Low').
-        - 'in_season': Boolean indicating if the item is in season.
-        - 'is_holiday': Boolean indicating if the current day is a holiday.
-        - 'is_weekend': Boolean indicating if the current day is a weekend.
-        - 'weather_severity': Weather condition ('Severe', 'Moderate', 'Mild').
+        A DataFrame containing product-level data with the following required columns:
+        - 'sub_category': str, product sub-category name
+        - 'shelf_life_days': int, shelf life in days
+        - 'sales_demand': str, one of ['Very High', 'High', 'Normal', 'Low']
+        - 'in_season': bool, whether the product is currently in season
+        - 'is_holiday': bool, whether the day is a holiday
+        - 'is_weekend': bool, whether the day is a weekend
+        - 'weather_severity': str, one of ['Catastrophic', 'Extreme', 'Severe', 'Moderate', 'Normal']
 
     random_state : int, optional
-        Seed for the random number generator to ensure reproducibility of simulated results.
+        Seed for reproducibility of random noise in simulation.
 
-    Returns
-    -------
+    Returns:
+    --------
     pandas.Series
-        A Series of simulated sales volumes (integers), one for each row in the input DataFrame.
+        A Series of simulated sales volumes (integers) for each row in the input DataFrame.
 
-    Example
-    -------
-    >>> import pandas as pd
+    Example:
+    --------
     >>> data = pd.DataFrame({
-    ...     'stock_quantity': [50, 20],
-    ...     'min_stock': [10, 5],
-    ...     'category': ['Fresh Foods', 'Pantry'],
-    ...     'shelf_life_days': [1, 30],
-    ...     'sales_demand': ['High', 'Normal'],
+    ...     'sub_category': ['Bread', 'Fruits'],
+    ...     'shelf_life_days': [2, 5],
+    ...     'sales_demand': ['High', 'Very High'],
     ...     'in_season': [True, False],
     ...     'is_holiday': [False, True],
     ...     'is_weekend': [True, False],
-    ...     'weather_severity': ['Mild', 'Moderate']
+    ...     'weather_severity': ['Moderate', 'Normal']
     ... })
-    >>> simulate_sales_volume_controlled_turnover(data, random_state=42)
-    0    251
-    1     47
+    >>> simulate_sales_volume(data, random_state=42)
+    0    1262
+    1    1462
     dtype: int64
     """
 
+    # Set random seed for reproducibility
     if random_state is not None:
         np.random.seed(random_state)
 
     def calculate_sales_per_row(row):
-        stock_quantity = row['stock_quantity']
-        min_stock = row['min_stock']
-
-        # Category-specific base turnover targets
-        base_turnover = {
-            'Oils & Condiments': 1.1,
-            'Grains & Flours': 1.3,
-            'Breads & Biscuits': 3.0,
-            'Fresh Foods': 2.5,      # Very high - multiple restocks per day
-            'Dairy': 2.2,           # High - daily restocking
-            'Beverages': 1.8,       # High-medium
-            'Bakery': 3.0,          # Very high (fresh bread)
-            'Pantry': 1.2,          # Medium
-            'Frozen Foods': 1.3,    # Medium
-            'Health & Beauty': 1.0  # Lower
+        # Base sales volume per sub-category
+        base_sales_volume = {
+            'Baking Supplies': 10, 'Bread': 117, 'Breakfast Foods': 40, 'Canned Fish': 13, 'Canned Goods': 50,
+            'Coffee': 33, 'Condiments': 30, 'Dairy': 107, 'Desserts': 23, 'Dried Fruits': 10, 'Eggs': 93,
+            'Fruits': 167, 'Grains & Rice': 60, 'Juices': 53, 'Meat': 133, 'Nuts & Seeds': 13, 'Oils & Vinegars': 27,
+            'Pastries': 33, 'Plant-Based Milk': 17, 'Plant-Based Proteins': 8, 'Seafood': 10, 'Snacks': 83,
+            'Spices': 20, 'Spreads': 17, 'Sweeteners': 23, 'Tea': 20, 'Vegetables': 160
         }
-        
-        turnover_factor = base_turnover.get(row['category'], 1.0)
 
-        # Base potential sales calculation
-        if stock_quantity <= 0:
-            base_potential = min_stock * 0.8 if min_stock > 0 else 15
-        else:
-            base_potential = stock_quantity
+        # Default base volume if sub-category not found
+        base_volume = base_sales_volume.get(row['sub_category'], 50)
 
-        # Shelf life criticality
-        if row['shelf_life_days'] <= 2:  # Ultra fresh
+        # Turnover multiplier per sub-category
+        turnover_multiplier = {
+            'Baking Supplies': 0.9, 'Bread': 2.5, 'Breakfast Foods': 1.7, 'Canned Fish': 0.9, 'Canned Goods': 1.5,
+            'Coffee': 1.7, 'Condiments': 1.3, 'Dairy': 2.4, 'Desserts': 1.1, 'Dried Fruits': 1.0, 'Eggs': 2.3,
+            'Fruits': 2.2, 'Grains & Rice': 1.5, 'Juices': 1.8, 'Meat': 2.1, 'Nuts & Seeds': 1.0, 'Oils & Vinegars': 1.2,
+            'Pastries': 1.6, 'Plant-Based Milk': 1.4, 'Plant-Based Proteins': 0.8, 'Seafood': 0.8, 'Snacks': 2.0,
+            'Spices': 1.2, 'Spreads': 1.1, 'Sweeteners': 1.2, 'Tea': 1.1, 'Vegetables': 2.2
+        }
+
+        # Default turnover factor if sub-category not found
+        turnover_factor = turnover_multiplier.get(row['sub_category'], 1.0)
+
+        # Adjust for shelf life urgency
+        if row['shelf_life_days'] <= 2:
             turnover_factor *= 3.0
         elif row['shelf_life_days'] <= 3:
             turnover_factor *= 2.5
         elif row['shelf_life_days'] <= 7:
             turnover_factor *= 2.0
 
-        # Demand intensity
+        # Adjust for demand level
         demand_boost = {
             'Very High': 1.8,
             'High': 1.5,
@@ -266,13 +335,12 @@ def simulate_sales_volume(df, random_state=None):
         # Seasonal and calendar effects
         if row['in_season']:
             turnover_factor *= 1.5
-            
         if row['is_holiday']:
             turnover_factor *= 1.6
         elif row['is_weekend']:
             turnover_factor *= 1.3
 
-        # Weather adjustment (milder impact for high-turnover goods)
+        # Weather impact
         weather_multiplier = {
             'Catastrophic': 0.1,
             'Extreme': 0.6,
@@ -282,16 +350,17 @@ def simulate_sales_volume(df, random_state=None):
         }
         turnover_factor *= weather_multiplier.get(row['weather_severity'], 1.0)
 
-        # Calculate final sales potential
-        sales_potential = base_potential * turnover_factor
-        
-        # Add noise and ensure realistic values
+        # Final sales potential
+        sales_potential = base_volume * turnover_factor
+
+        # Add randomness to simulate real-world variability
         noise = sales_potential * 0.25
         simulated_sales = np.random.normal(sales_potential, noise)
-        simulated_sales = max(1, simulated_sales)  # Minimum 1 unit
-        
-        return int(round(simulated_sales))
 
+        # Ensure minimum of 1 unit sold
+        return int(round(max(1, simulated_sales)))
+
+    # Apply simulation to each row
     return df.apply(calculate_sales_per_row, axis=1)
 
 

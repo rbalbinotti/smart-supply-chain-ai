@@ -1,0 +1,5 @@
+outs:
+- md5: a4c48fc78a26bbc25d61d301ac1a1ec7
+  size: 149338
+  hash: md5
+  path: data_for_compare.pkl

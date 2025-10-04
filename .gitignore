@@ -227,3 +227,10 @@ processo.txt
 
 # arckive inter
 org_cod.py
+
+# MLflow 
+mlruns/
+
+.vscode/
+
+models/

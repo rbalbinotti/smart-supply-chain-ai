@@ -232,3 +232,5 @@ org_cod.py
 mlruns/
 
 .vscode/
+
+models/

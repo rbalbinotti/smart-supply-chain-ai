@@ -1,0 +1,5 @@
+outs:
+- md5: af0d033377a4e9a5a44cd7437e8a8131
+  size: 393663
+  hash: md5
+  path: full_data_cleaned.pkl

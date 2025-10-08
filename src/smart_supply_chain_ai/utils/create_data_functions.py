@@ -4,6 +4,69 @@ import ast
 import holidays
 import math
 
+from workalendar.america import Brazil
+
+
+
+class DateFeatureExtractor:
+    """
+    Extracts calendar-based features from a list of dates using the Brazilian calendar.
+
+    Attributes:
+        calendar (Brazil): An instance of the Brazilian calendar from the workalendar library.
+    """
+
+    def __init__(self, country='Brazil'):
+        """
+        Initializes the DateFeatureExtractor with a calendar for the specified country.
+        
+        Args:
+            country (str): Country name for calendar selection. Currently defaults to 'Brazil'.
+        """
+        self.calendar = country
+    
+    def extract_features(self, dates):
+        """
+        Extracts date-related features for each date in the input list.
+
+        Features include:
+            - Year, month, day
+            - Day of the week
+            - Weekend indicator
+            - Holiday indicator and name
+            - Business day indicator
+
+        Args:
+            dates (iterable): A list or iterable of date strings or datetime objects.
+
+        Returns:
+            pd.DataFrame: A DataFrame containing extracted features for each date.
+        """
+        features = []
+        for date in dates:
+            pd_date = pd.Timestamp(date)
+            features.append({
+                'date': date,
+                'year': pd_date.year,
+                'month': pd_date.month,
+                'day': pd_date.day,
+                'day_of_week': pd_date.dayofweek,
+                'is_weekend': pd_date.dayofweek >= 5,
+                'is_holiday': self.calendar.is_holiday(pd_date),
+                'holiday_name': self.calendar.get_holiday_label(pd_date) 
+                                if self.calendar.is_holiday(pd_date) else None,
+                'is_business_day': self.calendar.is_working_day(pd_date)
+            })
+        return pd.DataFrame(features)
+
+if __name__ == "__main__":
+    # Example usage
+    extractor = DateFeatureExtractor()
+    dates = pd.date_range('2024-01-01', '2024-01-10', freq='D')
+    features_df = extractor.extract_features(dates)
+    print(features_df)
+
+
 
 def estimate_delivery_days(row):
     """

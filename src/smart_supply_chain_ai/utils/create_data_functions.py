@@ -3,68 +3,205 @@ import numpy as np
 import ast
 import holidays
 import math
+import importlib
 
 from workalendar.america import Brazil
+from sklearn.base import BaseEstimator, TransformerMixin
 
 
 
-class DateFeatureExtractor:
+class LagFeatureCreator(BaseEstimator, TransformerMixin):
     """
-    Extracts calendar-based features from a list of dates using the Brazilian calendar.
+    A scikit-learn compatible transformer that creates lagged (shifted) features
+    for a target column within each group.
+
+    This is typically used to add lag-based features (e.g., previous week/month values)
+    to help models capture temporal dependencies.
 
     Attributes:
-        calendar (Brazil): An instance of the Brazilian calendar from the workalendar library.
+        group_column (str): Name of the column used for grouping (e.g., product_id).
+        shift_column (str): Name of the column to apply the lag on (e.g., sales, demand).
+        lags (list[int]): List of lag periods to create (default: [7, 14, 28]).
+
+    Example Usage
+        df = pd.DataFrame({
+        'product_id': ['A', 'A', 'A', 'B', 'B', 'B'],
+        'date': pd.date_range('2025-01-01', periods=3).tolist() * 2,
+        'sales': [10, 12, 15, 20, 25, 23]})
+
+        lagger = LagFeatureCreator(group_column='product_id', shift_column='sales', lags=[1, 2])
+        df_lagged = lagger.transform(df)
+        print(df_lagged)
     """
 
-    def __init__(self, country='Brazil'):
+    def __init__(self, group_column: str, shift_column: str, lags: list[int] = [7, 14, 28]):
         """
-        Initializes the DateFeatureExtractor with a calendar for the specified country.
-        
-        Args:
-            country (str): Country name for calendar selection. Currently defaults to 'Brazil'.
-        """
-        self.calendar = country
-    
-    def extract_features(self, dates):
-        """
-        Extracts date-related features for each date in the input list.
-
-        Features include:
-            - Year, month, day
-            - Day of the week
-            - Weekend indicator
-            - Holiday indicator and name
-            - Business day indicator
+        Initialize the LagFeatureCreator transformer.
 
         Args:
-            dates (iterable): A list or iterable of date strings or datetime objects.
+            group_column (str): Column used to group the data (e.g., by product or store).
+            shift_column (str): Column to apply the lag on.
+            lags (list[int], optional): List of lag intervals. Defaults to [7, 14, 28].
+        """
+        self.group_column = group_column
+        self.shift_column = shift_column
+        self.lags = lags
+
+    def fit(self, X: pd.DataFrame, y=None):
+        """
+        Fit method (no fitting required).
+
+        Args:
+            X (pd.DataFrame): Input data.
+            y (ignored): Not used, present for API compatibility.
 
         Returns:
-            pd.DataFrame: A DataFrame containing extracted features for each date.
+            self: Returns the transformer itself.
         """
+        return self
+
+    def transform(self, X: pd.DataFrame) -> pd.DataFrame:
+        """
+        Transform the input DataFrame by creating lagged versions of the shift column.
+
+        Args:
+            X (pd.DataFrame): Input DataFrame.
+
+        Returns:
+            pd.DataFrame: DataFrame with additional lag columns.
+        """
+        X_copy = X.copy()
+
+        # Create one new column per lag value
+        for lag in self.lags:
+            lag_col_name = f"{self.shift_column}_lag_{lag}"
+            X_copy[lag_col_name] = (
+                X_copy.groupby(self.group_column)[self.shift_column].shift(lag)
+            )
+
+        return X_copy
+
+
+
+
+
+class DateFeatureExtractor(BaseEstimator, TransformerMixin):
+    """
+    A custom scikit-learn transformer that extracts date-related features from a specified date column.
+
+    This transformer uses country-specific calendars from the 'workalendar' library
+    to identify holidays and business days. It generates the following features:
+    - year, month, day, day_of_week, is_weekend, is_holiday, is_business_day.
+
+    Attributes:
+        date_column (str): Name of the column containing date values.
+        country (str): Name of the country for which the calendar is used.
+        calendar (object): Instance of the country's calendar.
+    
+    Example usage:
+        # Brazil calendar
+        extractor_br = DateFeatureExtractor(country='Brazil')
+        df_features_br = extractor_br.transform(df)
+
+        # United States calendar
+        extractor_us = DateFeatureExtractor(country='UnitedStates')
+        df_features_us = extractor_us.transform(df)
+    """
+
+    def __init__(self, date_column='received_date', country='Brazil'):
+        """
+        Initialize the DateFeatureExtractor with the target date column and country-specific calendar.
+
+        Args:
+            date_column (str, optional): Name of the column containing the dates. Defaults to 'received_date'.
+            country (str, optional): Country name used to select the calendar. Defaults to 'Brazil'.
+
+        Raises:
+            ValueError: If the specified country is not supported by workalendar.
+        """
+        self.date_column = date_column
+        self.country = country
+        self.calendar = self._get_calendar(country)
+
+    def _get_calendar(self, country):
+        """
+        Dynamically load a country-specific calendar from the workalendar library.
+
+        Args:
+            country (str): Country name, e.g., 'Brazil', 'UnitedStates', 'France'.
+
+        Returns:
+            object: Instance of the country’s calendar.
+
+        Raises:
+            ValueError: If the country calendar cannot be found.
+        """
+        # Common workalendar submodules organized by region
+        region_modules = [
+            'workalendar.america',
+            'workalendar.europe',
+            'workalendar.asia',
+            'workalendar.africa',
+            'workalendar.oceania'
+        ]
+
+        for module_name in region_modules:
+            try:
+                # Dynamically import the module
+                module = importlib.import_module(module_name)
+                # Attempt to get the class that matches the country name
+                calendar_class = getattr(module, country, None)
+                if calendar_class:
+                    return calendar_class()
+            except ModuleNotFoundError:
+                continue
+
+        raise ValueError(f"Unsupported or unavailable country calendar: {country}")
+
+    def fit(self, X, y=None):
+        """
+        Fit method (no fitting necessary for this transformer).
+
+        Args:
+            X (pd.DataFrame): Input data.
+            y (ignored): Not used, present for API consistency.
+
+        Returns:
+            self: Returns the transformer instance.
+        """
+        return self
+
+    def transform(self, X):
+        """
+        Transform the input DataFrame by extracting date-based features.
+
+        Args:
+            X (pd.DataFrame): Input data containing the date column.
+
+        Returns:
+            pd.DataFrame: DataFrame with new date-related feature columns.
+        """
+        # Copy to avoid modifying the original DataFrame
+        X = X.copy()
+
+        # Convert date column to pandas datetime
+        dates = pd.to_datetime(X[self.date_column])
+
         features = []
         for date in dates:
             pd_date = pd.Timestamp(date)
             features.append({
-                'date': date,
                 'year': pd_date.year,
                 'month': pd_date.month,
                 'day': pd_date.day,
-                'day_of_week': pd_date.dayofweek,
-                'is_weekend': pd_date.dayofweek >= 5,
+                'day_of_week': pd_date.dayofweek,        # Monday=0, Sunday=6
+                'is_weekend': pd_date.dayofweek >= 5,    # Saturday or Sunday
                 'is_holiday': self.calendar.is_holiday(pd_date),
-                'holiday_name': self.calendar.get_holiday_label(pd_date) 
-                                if self.calendar.is_holiday(pd_date) else None,
                 'is_business_day': self.calendar.is_working_day(pd_date)
             })
-        return pd.DataFrame(features)
 
-if __name__ == "__main__":
-    # Example usage
-    extractor = DateFeatureExtractor()
-    dates = pd.date_range('2024-01-01', '2024-01-10', freq='D')
-    features_df = extractor.extract_features(dates)
-    print(features_df)
+        return pd.DataFrame(features, index=X.index)
+
 
 
 

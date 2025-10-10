@@ -171,37 +171,47 @@ class DateFeatureExtractor(BaseEstimator, TransformerMixin):
         """
         return self
 
-    def transform(self, X):
+    def transform(self, X: pd.DataFrame) -> pd.DataFrame:
         """
-        Transform the input DataFrame by extracting date-based features.
+        Transform the input DataFrame by extracting date-based features e as juntando.
 
         Args:
             X (pd.DataFrame): Input data containing the date column.
 
         Returns:
-            pd.DataFrame: DataFrame with new date-related feature columns.
+            pd.DataFrame: DataFrame com novas colunas de feature de data e as colunas originais.
         """
-        # Copy to avoid modifying the original DataFrame
-        X = X.copy()
+        # 1. Copy the input DataFrame to avoid modifying the original
+        X_out = X.copy() 
 
-        # Convert date column to pandas datetime
-        dates = pd.to_datetime(X[self.date_column])
+        # 2. Convert the date column to datetime format
+        dates = pd.to_datetime(X_out[self.date_column])
 
-        features = []
+        features_data = []
         for date in dates:
             pd_date = pd.Timestamp(date)
-            features.append({
+            features_data.append({
                 'year': pd_date.year,
                 'month': pd_date.month,
                 'day': pd_date.day,
-                'day_of_week': pd_date.dayofweek,        # Monday=0, Sunday=6
-                'is_weekend': pd_date.dayofweek >= 5,    # Saturday or Sunday
-                'is_holiday': self.calendar.is_holiday(pd_date),
-                'is_business_day': self.calendar.is_working_day(pd_date)
+                'day_of_week': pd_date.dayofweek,
+                'is_weekend': pd_date.dayofweek >= 5,
+                'is_holiday': self.calendar.is_holiday(pd_date) if self.calendar else False, 
+                'is_business_day': self.calendar.is_working_day(pd_date) if self.calendar else (pd_date.dayofweek < 5)
             })
 
-        return pd.DataFrame(features, index=X.index)
+        # 3. Create a DataFrame from the extracted features
+        features_df = pd.DataFrame(features_data, index=X.index)
+        
+        # 4. Concatenate the new features with the original DataFrame
+        for col in features_df.columns:
+            X_out[col] = features_df[col]
+        
+        # 5. Optionally drop the original date column
+        if self.date_column in X_out.columns:
+            X_out = X_out.drop(columns=[self.date_column])
 
+        return X_out
 
 
 

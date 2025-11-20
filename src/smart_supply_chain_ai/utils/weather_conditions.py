@@ -1,3 +1,15 @@
+"""
+Weather Conditions Data Preprocessing Utilities
+
+This module provides functions for cleaning, transforming, and preparing weather-related
+features (such as temperature, precipitation, and general conditions) for use as
+exogenous variables in time series forecasting models.
+
+Author: Roberto Rosário Balbinotti
+Created: 2025
+Version: 1.0
+"""
+
 import pandas as pd
 import numpy as np
 from datetime import datetime

@@ -234,3 +234,6 @@ mlruns/
 .vscode/
 
 models/
+
+# Saved data
+*.pkl

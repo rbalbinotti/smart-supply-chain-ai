@@ -5,7 +5,7 @@ description = "Intelligent System for Inventory and Purchasing Optimization with
 authors = [
     {name = "Roberto Balbinotti", email = "rbalbinotti@gmail.com"},
 ]
-dependencies = ["pandas>=2.1.4", "plotly>=5.24.1", "kaggle>=1.7.4.5", "scikit-learn>=1.7.1", "statsmodels>=0.14.5", "xgboost>=3.0.4", "mlflow>=3.3.1", "sktime>=0.38.5", "holidays>=0.81", "workalendar>=17.0.0"]
+dependencies = ["pandas>=2.1.4", "plotly>=5.24.1", "scikit-learn>=1.7.1", "statsmodels>=0.14.5", "xgboost>=3.0.4", "mlflow>=3.3.1", "holidays>=0.81", "workalendar>=17.0.0", "mlforecast>=1.0.2", "statsforecast>=2.0.2"]
 requires-python = ">=3.11,<3.13"
 readme = "README.md"
 license = {text = "Creative Commons Attribution-NonCommercial 4.0 International"}
@@ -24,7 +24,7 @@ dev = [
     "ipywidgets>=8.1.7",
     "deptry>=0.23.1",
     "pre-commit>=4.3.0",
-    
+    "git+https://github.com/PyFilesystem/pyfilesystem2.git",
 ]
 
 [tool.deptry]

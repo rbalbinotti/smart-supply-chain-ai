@@ -5,10 +5,24 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:0a3a29bb1825050cf431626a9060d2c853b580184cdc7ff9d421c53c1e7a662c"
+content_hash = "sha256:bde2423e6a041c7b346bb9a3ad7d19936dbe230fe36c51ea8acf6808be62d150"
 
 [[metadata.targets]]
 requires_python = ">=3.11,<3.13"
+
+[[package]]
+name = "adagio"
+version = "0.2.6"
+requires_python = ">=3.8"
+summary = "The Dag IO Framework for Fugue projects"
+groups = ["default"]
+dependencies = [
+    "triad>=0.6.1",
+]
+files = [
+    {file = "adagio-0.2.6-py3-none-any.whl", hash = "sha256:1bb8317d41bfff8b11373bc03c9859ff166c498214bb2b7ce1e21638c0babb2c"},
+    {file = "adagio-0.2.6.tar.gz", hash = "sha256:0c32768f3aba0e05273b36f9420a482034f2510f059171040d7e98ba34128d7a"},
+]
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -360,7 +374,7 @@ name = "bleach"
 version = "6.2.0"
 requires_python = ">=3.9"
 summary = "An easy safelist-based HTML-sanitizing tool."
-groups = ["default", "dev"]
+groups = ["dev"]
 dependencies = [
     "webencodings",
 ]
@@ -599,6 +613,20 @@ files = [
 ]
 
 [[package]]
+name = "colorlog"
+version = "6.9.0"
+requires_python = ">=3.6"
+summary = "Add colours to the output of Python's logging module."
+groups = ["default"]
+dependencies = [
+    "colorama; sys_platform == \"win32\"",
+]
+files = [
+    {file = "colorlog-6.9.0-py3-none-any.whl", hash = "sha256:5906e71acd67cb07a71e779c47c4bcb45fb8c2993eebe9e5adcd6a6f1b283eff"},
+    {file = "colorlog-6.9.0.tar.gz", hash = "sha256:bfba54a1b93b94f54e1f4fe48395725a3d92fd2a4af702f6bd70946bdc0c6ac2"},
+]
+
+[[package]]
 name = "comm"
 version = "0.2.3"
 requires_python = ">=3.8"
@@ -672,6 +700,29 @@ dependencies = [
 files = [
     {file = "convertdate-2.4.0-py3-none-any.whl", hash = "sha256:fcffe3a67522172648cf03b0c3757cfd079726fe5ae04ce29989ad3958039e4e"},
     {file = "convertdate-2.4.0.tar.gz", hash = "sha256:770c6b2195544d3e451e230b3f1c9b121ed02680b877f896306a04cf6f26b48f"},
+]
+
+[[package]]
+name = "coreforecast"
+version = "0.0.16"
+requires_python = ">=3.9"
+summary = "Fast implementations of common forecasting routines"
+groups = ["default"]
+dependencies = [
+    "numpy>=1.20.0",
+]
+files = [
+    {file = "coreforecast-0.0.16-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:deaffe3990c7712f5372ffb53310a47c966f36b6431a62ffd8b65082e72d8c33"},
+    {file = "coreforecast-0.0.16-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:3dbc0ad3fa4a94de43be8dee3ed258569a4b61f91ba7bbd7242d00f4a7e49009"},
+    {file = "coreforecast-0.0.16-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b307f3a1408e8b6d696e79b45d2b61a9842b0fd626ee5cecb8b10025a9084e61"},
+    {file = "coreforecast-0.0.16-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a8cfd447f9fc2dbf7f13fca1b1fa2af2bd18643d8423042f63ee064dbb348b23"},
+    {file = "coreforecast-0.0.16-cp311-cp311-win_amd64.whl", hash = "sha256:96c2ea3ee226f010bf5e0f93e7a57465d235e39bc9c12ee13fcb70b25ffaba00"},
+    {file = "coreforecast-0.0.16-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:58d8ce565b87c54359c10b427ec196d246bc5c729e107be9a30158678063c288"},
+    {file = "coreforecast-0.0.16-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:00c7f8061acf10c1e0aca1cca1d958991a030925600386491e1c89658305b9e5"},
+    {file = "coreforecast-0.0.16-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4ae259b7b8c22a9be25dbfae30fff48a984ba47e7bb171228a09ab1e68dae87c"},
+    {file = "coreforecast-0.0.16-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:57ca4f0e374fee7eddf3ab3c2be36e56df95a050f4fb8c28757ae3150980f06c"},
+    {file = "coreforecast-0.0.16-cp312-cp312-win_amd64.whl", hash = "sha256:0b845827b0e00b017abe3c38e77f628cdca9770fd7bb02861f6edaed0d482d2b"},
+    {file = "coreforecast-0.0.16.tar.gz", hash = "sha256:47d7efc4a03e736dc29a44184934cf7535371fcd8434c3f2a31b0d663b6d88ea"},
 ]
 
 [[package]]
@@ -905,7 +956,7 @@ files = [
 
 [[package]]
 name = "dvc"
-version = "3.62.0"
+version = "3.63.0"
 requires_python = ">=3.9"
 summary = "Git for data scientists - manage your code and data together"
 groups = ["dev"]
@@ -954,8 +1005,8 @@ dependencies = [
     "zc-lockfile>=1.2.1",
 ]
 files = [
-    {file = "dvc-3.62.0-py3-none-any.whl", hash = "sha256:1159540efacc1c1ef0ab6012465d8af6272944eccdce60e63df4d4cc15ffca65"},
-    {file = "dvc-3.62.0.tar.gz", hash = "sha256:cc247a5066869bd6ebd53d7decb108be7a839ebf45acea6ddc12d59ab812292c"},
+    {file = "dvc-3.63.0-py3-none-any.whl", hash = "sha256:14e2cf206ee1f65a2afddf2b756bbc25816b32177c56067e1ccce2c65fbdb89f"},
+    {file = "dvc-3.63.0.tar.gz", hash = "sha256:b845cf8825e1b07d427e8d04754a0e01f141708bcbb1dae91e18db9e640ae68e"},
 ]
 
 [[package]]
@@ -1253,11 +1304,27 @@ files = [
 ]
 
 [[package]]
+name = "fs"
+version = "2.4.16"
+git = "https://github.com/PyFilesystem/pyfilesystem2.git"
+revision = "77a8562785fc37cb2e30bdcd39c133097ba62dce"
+summary = "Python's filesystem abstraction layer"
+groups = ["dev"]
+dependencies = [
+    "appdirs~=1.4.3",
+    "backports-os~=0.1; python_version < \"3.0\"",
+    "enum34~=1.1.6; python_version < \"3.4\"",
+    "setuptools",
+    "six~=1.10",
+    "typing~=3.6; python_version < \"3.6\"",
+]
+
+[[package]]
 name = "fsspec"
 version = "2025.7.0"
 requires_python = ">=3.9"
 summary = "File-system specification"
-groups = ["dev"]
+groups = ["default", "dev"]
 files = [
     {file = "fsspec-2025.7.0-py3-none-any.whl", hash = "sha256:8b012e39f63c7d5f10474de957f3ab793b47b45ae7d39f2fb735f8bbe25c0e21"},
     {file = "fsspec-2025.7.0.tar.gz", hash = "sha256:786120687ffa54b8283d942929540d8bc5ccfa820deb555a2b5d0ed2b737bf58"},
@@ -1293,6 +1360,21 @@ dependencies = [
 files = [
     {file = "fsspec-2025.7.0-py3-none-any.whl", hash = "sha256:8b012e39f63c7d5f10474de957f3ab793b47b45ae7d39f2fb735f8bbe25c0e21"},
     {file = "fsspec-2025.7.0.tar.gz", hash = "sha256:786120687ffa54b8283d942929540d8bc5ccfa820deb555a2b5d0ed2b737bf58"},
+]
+
+[[package]]
+name = "fugue"
+version = "0.9.1"
+requires_python = ">=3.8"
+summary = "An abstraction layer for distributed computation"
+groups = ["default"]
+dependencies = [
+    "adagio>=0.2.4",
+    "triad>=0.9.7",
+]
+files = [
+    {file = "fugue-0.9.1-py3-none-any.whl", hash = "sha256:5b91e55e6f243af6e2b901dc37914d954d8f0231627b68007850879f8848a3a3"},
+    {file = "fugue-0.9.1.tar.gz", hash = "sha256:fb0f9a4780147ac8438be96efc50593e2d771d1cbf528ac56d3bcecd39915b50"},
 ]
 
 [[package]]
@@ -1587,8 +1669,8 @@ files = [
 
 [[package]]
 name = "ipykernel"
-version = "6.30.1"
-requires_python = ">=3.9"
+version = "7.0.1"
+requires_python = ">=3.10"
 summary = "IPython Kernel for Jupyter"
 groups = ["dev"]
 dependencies = [
@@ -1607,8 +1689,8 @@ dependencies = [
     "traitlets>=5.4.0",
 ]
 files = [
-    {file = "ipykernel-6.30.1-py3-none-any.whl", hash = "sha256:aa6b9fb93dca949069d8b85b6c79b2518e32ac583ae9c7d37c51d119e18b3fb4"},
-    {file = "ipykernel-6.30.1.tar.gz", hash = "sha256:6abb270161896402e76b91394fcdce5d1be5d45f456671e5080572f8505be39b"},
+    {file = "ipykernel-7.0.1-py3-none-any.whl", hash = "sha256:87182a8305e28954b6721087dec45b171712610111d494c17bb607befa1c4000"},
+    {file = "ipykernel-7.0.1.tar.gz", hash = "sha256:2d3fd7cdef22071c2abbad78f142b743228c5d59cd470d034871ae0ac359533c"},
 ]
 
 [[package]]
@@ -2054,35 +2136,8 @@ files = [
 ]
 
 [[package]]
-name = "kaggle"
-version = "1.7.4.5"
-requires_python = ">=3.7"
-summary = "Access Kaggle resources anywhere"
-groups = ["default"]
-dependencies = [
-    "bleach",
-    "certifi>=14.05.14",
-    "charset-normalizer",
-    "idna",
-    "protobuf",
-    "python-dateutil>=2.5.3",
-    "python-slugify",
-    "requests",
-    "setuptools>=21.0.0",
-    "six>=1.10",
-    "text-unidecode",
-    "tqdm",
-    "urllib3>=1.15.1",
-    "webencodings",
-]
-files = [
-    {file = "kaggle-1.7.4.5-py3-none-any.whl", hash = "sha256:9732afb1c073f14acc7e49dfab98456f887d10b735bcd6348bc1340e92393882"},
-    {file = "kaggle-1.7.4.5.tar.gz", hash = "sha256:1d9821bd6a6a1470741c76d26495a18475b5a7bfe0c80b19191254b2735d41dd"},
-]
-
-[[package]]
 name = "kagglehub"
-version = "0.3.12"
+version = "0.3.13"
 requires_python = ">=3.9"
 summary = "Access Kaggle resources anywhere"
 groups = ["dev"]
@@ -2093,8 +2148,8 @@ dependencies = [
     "tqdm",
 ]
 files = [
-    {file = "kagglehub-0.3.12-py3-none-any.whl", hash = "sha256:6eeb7c5c8e1f25a28e9b26d3d8ed0c24a4a32f763ea5de6e1b3aabba442f2a26"},
-    {file = "kagglehub-0.3.12.tar.gz", hash = "sha256:45e75854630a30605b794eb786b3757beccbbea1acca71600642f67b60e0d7bf"},
+    {file = "kagglehub-0.3.13-py3-none-any.whl", hash = "sha256:e00dec8b81396cbad9c7b5eb62a33cf8ae27da26227abd196ed8f054c845ca00"},
+    {file = "kagglehub-0.3.13.tar.gz", hash = "sha256:d3c8b6250627d665096cd91a9487559bf5ed61be607eaf63d14511b20eea646e"},
 ]
 
 [[package]]
@@ -2165,6 +2220,26 @@ groups = ["dev"]
 files = [
     {file = "lark-1.2.2-py3-none-any.whl", hash = "sha256:c2276486b02f0f1b90be155f2c8ba4a8e194d42775786db622faccd652d8e80c"},
     {file = "lark-1.2.2.tar.gz", hash = "sha256:ca807d0162cd16cef15a8feecb862d7319e7a09bdb13aef927968e45040fed80"},
+]
+
+[[package]]
+name = "llvmlite"
+version = "0.45.1"
+requires_python = ">=3.10"
+summary = "lightweight wrapper around basic LLVM functionality"
+groups = ["default"]
+files = [
+    {file = "llvmlite-0.45.1-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:60f92868d5d3af30b4239b50e1717cb4e4e54f6ac1c361a27903b318d0f07f42"},
+    {file = "llvmlite-0.45.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:98baab513e19beb210f1ef39066288784839a44cd504e24fff5d17f1b3cf0860"},
+    {file = "llvmlite-0.45.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:3adc2355694d6a6fbcc024d59bb756677e7de506037c878022d7b877e7613a36"},
+    {file = "llvmlite-0.45.1-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:2f3377a6db40f563058c9515dedcc8a3e562d8693a106a28f2ddccf2c8fcf6ca"},
+    {file = "llvmlite-0.45.1-cp311-cp311-win_amd64.whl", hash = "sha256:f9c272682d91e0d57f2a76c6d9ebdfccc603a01828cdbe3d15273bdca0c3363a"},
+    {file = "llvmlite-0.45.1-cp312-cp312-macosx_10_15_x86_64.whl", hash = "sha256:28e763aba92fe9c72296911e040231d486447c01d4f90027c8e893d89d49b20e"},
+    {file = "llvmlite-0.45.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:1a53f4b74ee9fd30cb3d27d904dadece67a7575198bd80e687ee76474620735f"},
+    {file = "llvmlite-0.45.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:5b3796b1b1e1c14dcae34285d2f4ea488402fbd2c400ccf7137603ca3800864f"},
+    {file = "llvmlite-0.45.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:779e2f2ceefef0f4368548685f0b4adde34e5f4b457e90391f570a10b348d433"},
+    {file = "llvmlite-0.45.1-cp312-cp312-win_amd64.whl", hash = "sha256:9e6c9949baf25d9aa9cd7cf0f6d011b9ca660dd17f5ba2b23bdbdb77cc86b116"},
+    {file = "llvmlite-0.45.1.tar.gz", hash = "sha256:09430bb9d0bb58fc45a45a57c7eae912850bedc095cd0810a57de109c69e1c32"},
 ]
 
 [[package]]
@@ -2390,6 +2465,26 @@ files = [
 ]
 
 [[package]]
+name = "mlforecast"
+version = "1.0.2"
+requires_python = ">=3.9"
+summary = "Scalable machine learning based time series forecasting"
+groups = ["default"]
+dependencies = [
+    "cloudpickle",
+    "coreforecast>=0.0.15",
+    "fsspec",
+    "optuna",
+    "pandas",
+    "scikit-learn",
+    "utilsforecast>=0.2.9",
+]
+files = [
+    {file = "mlforecast-1.0.2-py3-none-any.whl", hash = "sha256:158553b08a526abfe1b2feed175e0a228a555e576948c20260a36f8c7a1d0b7c"},
+    {file = "mlforecast-1.0.2.tar.gz", hash = "sha256:a24f8e04e3590aad7bd037908cdb7b2cfbf295781cd4c8ff087b332968155624"},
+]
+
+[[package]]
 name = "multidict"
 version = "6.6.4"
 requires_python = ">=3.9"
@@ -2567,6 +2662,30 @@ files = [
 ]
 
 [[package]]
+name = "numba"
+version = "0.62.1"
+requires_python = ">=3.10"
+summary = "compiling Python code using LLVM"
+groups = ["default"]
+dependencies = [
+    "llvmlite<0.46,>=0.45.0dev0",
+    "numpy<2.4,>=1.22",
+]
+files = [
+    {file = "numba-0.62.1-cp311-cp311-macosx_10_15_x86_64.whl", hash = "sha256:f43e24b057714e480fe44bc6031de499e7cf8150c63eb461192caa6cc8530bc8"},
+    {file = "numba-0.62.1-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:57cbddc53b9ee02830b828a8428757f5c218831ccc96490a314ef569d8342b7b"},
+    {file = "numba-0.62.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:604059730c637c7885386521bb1b0ddcbc91fd56131a6dcc54163d6f1804c872"},
+    {file = "numba-0.62.1-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:d6c540880170bee817011757dc9049dba5a29db0c09b4d2349295991fe3ee55f"},
+    {file = "numba-0.62.1-cp311-cp311-win_amd64.whl", hash = "sha256:03de6d691d6b6e2b76660ba0f38f37b81ece8b2cc524a62f2a0cfae2bfb6f9da"},
+    {file = "numba-0.62.1-cp312-cp312-macosx_10_15_x86_64.whl", hash = "sha256:1b743b32f8fa5fff22e19c2e906db2f0a340782caf024477b97801b918cf0494"},
+    {file = "numba-0.62.1-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:90fa21b0142bcf08ad8e32a97d25d0b84b1e921bc9423f8dda07d3652860eef6"},
+    {file = "numba-0.62.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:6ef84d0ac19f1bf80431347b6f4ce3c39b7ec13f48f233a48c01e2ec06ecbc59"},
+    {file = "numba-0.62.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:9315cc5e441300e0ca07c828a627d92a6802bcbf27c5487f31ae73783c58da53"},
+    {file = "numba-0.62.1-cp312-cp312-win_amd64.whl", hash = "sha256:44e3aa6228039992f058f5ebfcfd372c83798e9464297bdad8cc79febcf7891e"},
+    {file = "numba-0.62.1.tar.gz", hash = "sha256:7b774242aa890e34c21200a1fc62e5b5757d5286267e71103257f4e2af0d5161"},
+]
+
+[[package]]
 name = "numpy"
 version = "1.26.4"
 requires_python = ">=3.9"
@@ -2667,6 +2786,26 @@ files = [
 ]
 
 [[package]]
+name = "optuna"
+version = "4.5.0"
+requires_python = ">=3.8"
+summary = "A hyperparameter optimization framework"
+groups = ["default"]
+dependencies = [
+    "PyYAML",
+    "alembic>=1.5.0",
+    "colorlog",
+    "numpy",
+    "packaging>=20.0",
+    "sqlalchemy>=1.4.2",
+    "tqdm",
+]
+files = [
+    {file = "optuna-4.5.0-py3-none-any.whl", hash = "sha256:5b8a783e84e448b0742501bc27195344a28d2c77bd2feef5b558544d954851b0"},
+    {file = "optuna-4.5.0.tar.gz", hash = "sha256:264844da16dad744dea295057d8bc218646129c47567d52c35a201d9f99942ba"},
+]
+
+[[package]]
 name = "orjson"
 version = "3.11.2"
 requires_python = ">=3.9"
@@ -2735,32 +2874,34 @@ files = [
 
 [[package]]
 name = "pandas"
-version = "2.1.4"
+version = "2.3.3"
 requires_python = ">=3.9"
 summary = "Powerful data structures for data analysis, time series, and statistics"
 groups = ["default"]
 dependencies = [
-    "numpy<2,>=1.22.4; python_version < \"3.11\"",
-    "numpy<2,>=1.23.2; python_version == \"3.11\"",
-    "numpy<2,>=1.26.0; python_version >= \"3.12\"",
+    "numpy>=1.22.4; python_version < \"3.11\"",
+    "numpy>=1.23.2; python_version == \"3.11\"",
+    "numpy>=1.26.0; python_version >= \"3.12\"",
     "python-dateutil>=2.8.2",
     "pytz>=2020.1",
-    "tzdata>=2022.1",
+    "tzdata>=2022.7",
 ]
 files = [
-    {file = "pandas-2.1.4-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:b7d852d16c270e4331f6f59b3e9aa23f935f5c4b0ed2d0bc77637a8890a5d092"},
-    {file = "pandas-2.1.4-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:bd7d5f2f54f78164b3d7a40f33bf79a74cdee72c31affec86bfcabe7e0789821"},
-    {file = "pandas-2.1.4-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0aa6e92e639da0d6e2017d9ccff563222f4eb31e4b2c3cf32a2a392fc3103c0d"},
-    {file = "pandas-2.1.4-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d797591b6846b9db79e65dc2d0d48e61f7db8d10b2a9480b4e3faaddc421a171"},
-    {file = "pandas-2.1.4-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:d2d3e7b00f703aea3945995ee63375c61b2e6aa5aa7871c5d622870e5e137623"},
-    {file = "pandas-2.1.4-cp311-cp311-win_amd64.whl", hash = "sha256:dc9bf7ade01143cddc0074aa6995edd05323974e6e40d9dbde081021ded8510e"},
-    {file = "pandas-2.1.4-cp312-cp312-macosx_10_9_x86_64.whl", hash = "sha256:482d5076e1791777e1571f2e2d789e940dedd927325cc3cb6d0800c6304082f6"},
-    {file = "pandas-2.1.4-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:8a706cfe7955c4ca59af8c7a0517370eafbd98593155b48f10f9811da440248b"},
-    {file = "pandas-2.1.4-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b0513a132a15977b4a5b89aabd304647919bc2169eac4c8536afb29c07c23540"},
-    {file = "pandas-2.1.4-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e9f17f2b6fc076b2a0078862547595d66244db0f41bf79fc5f64a5c4d635bead"},
-    {file = "pandas-2.1.4-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:45d63d2a9b1b37fa6c84a68ba2422dc9ed018bdaa668c7f47566a01188ceeec1"},
-    {file = "pandas-2.1.4-cp312-cp312-win_amd64.whl", hash = "sha256:f69b0c9bb174a2342818d3e2778584e18c740d56857fc5cdb944ec8bbe4082cf"},
-    {file = "pandas-2.1.4.tar.gz", hash = "sha256:fcb68203c833cc735321512e13861358079a96c174a61f5116a1de89c58c0ef7"},
+    {file = "pandas-2.3.3-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:602b8615ebcc4a0c1751e71840428ddebeb142ec02c786e8ad6b1ce3c8dec523"},
+    {file = "pandas-2.3.3-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:8fe25fc7b623b0ef6b5009149627e34d2a4657e880948ec3c840e9402e5c1b45"},
+    {file = "pandas-2.3.3-cp311-cp311-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:b468d3dad6ff947df92dcb32ede5b7bd41a9b3cceef0a30ed925f6d01fb8fa66"},
+    {file = "pandas-2.3.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b98560e98cb334799c0b07ca7967ac361a47326e9b4e5a7dfb5ab2b1c9d35a1b"},
+    {file = "pandas-2.3.3-cp311-cp311-musllinux_1_2_aarch64.whl", hash = "sha256:1d37b5848ba49824e5c30bedb9c830ab9b7751fd049bc7914533e01c65f79791"},
+    {file = "pandas-2.3.3-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:db4301b2d1f926ae677a751eb2bd0e8c5f5319c9cb3f88b0becbbb0b07b34151"},
+    {file = "pandas-2.3.3-cp311-cp311-win_amd64.whl", hash = "sha256:f086f6fe114e19d92014a1966f43a3e62285109afe874f067f5abbdcbb10e59c"},
+    {file = "pandas-2.3.3-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:6d21f6d74eb1725c2efaa71a2bfc661a0689579b58e9c0ca58a739ff0b002b53"},
+    {file = "pandas-2.3.3-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:3fd2f887589c7aa868e02632612ba39acb0b8948faf5cc58f0850e165bd46f35"},
+    {file = "pandas-2.3.3-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:ecaf1e12bdc03c86ad4a7ea848d66c685cb6851d807a26aa245ca3d2017a1908"},
+    {file = "pandas-2.3.3-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:b3d11d2fda7eb164ef27ffc14b4fcab16a80e1ce67e9f57e19ec0afaf715ba89"},
+    {file = "pandas-2.3.3-cp312-cp312-musllinux_1_2_aarch64.whl", hash = "sha256:a68e15f780eddf2b07d242e17a04aa187a7ee12b40b930bfdd78070556550e98"},
+    {file = "pandas-2.3.3-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:371a4ab48e950033bcf52b6527eccb564f52dc826c02afd9a1bc0ab731bba084"},
+    {file = "pandas-2.3.3-cp312-cp312-win_amd64.whl", hash = "sha256:a16dcec078a01eeef8ee61bf64074b4e524a2a3f4b3be9326420cabe59c4778b"},
+    {file = "pandas-2.3.3.tar.gz", hash = "sha256:e05e1af93b977f7eafa636d043f9f94c7ee3ac81af99c13508215942e64c993b"},
 ]
 
 [[package]]
@@ -3282,20 +3423,6 @@ files = [
 ]
 
 [[package]]
-name = "python-slugify"
-version = "8.0.4"
-requires_python = ">=3.7"
-summary = "A Python slugify application that also handles Unicode"
-groups = ["default"]
-dependencies = [
-    "text-unidecode>=1.3",
-]
-files = [
-    {file = "python-slugify-8.0.4.tar.gz", hash = "sha256:59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"},
-    {file = "python_slugify-8.0.4-py2.py3-none-any.whl", hash = "sha256:276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8"},
-]
-
-[[package]]
 name = "pytz"
 version = "2025.2"
 summary = "World timezone definitions, modern and historical"
@@ -3610,17 +3737,6 @@ files = [
 ]
 
 [[package]]
-name = "scikit-base"
-version = "0.12.5"
-requires_python = "<3.14,>=3.9"
-summary = "Base classes for sklearn-like parametric objects"
-groups = ["default"]
-files = [
-    {file = "scikit_base-0.12.5-py3-none-any.whl", hash = "sha256:340591f7f1de57d76d38ff964926a08eb60a132ddb4de3f281d0e4a1bbb7fc00"},
-    {file = "scikit_base-0.12.5.tar.gz", hash = "sha256:7f97533bc3ee1e51b7c4c80fbca9dfd0845adff9e762625b5f9e141c664c2257"},
-]
-
-[[package]]
 name = "scikit-learn"
 version = "1.7.1"
 requires_python = ">=3.10"
@@ -3721,7 +3837,7 @@ name = "setuptools"
 version = "80.9.0"
 requires_python = ">=3.9"
 summary = "Easily download, build, install, upgrade, and uninstall Python packages"
-groups = ["default", "dev"]
+groups = ["dev"]
 files = [
     {file = "setuptools-80.9.0-py3-none-any.whl", hash = "sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922"},
     {file = "setuptools-80.9.0.tar.gz", hash = "sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"},
@@ -3769,26 +3885,6 @@ groups = ["default", "dev"]
 files = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},
     {file = "six-1.17.0.tar.gz", hash = "sha256:ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"},
-]
-
-[[package]]
-name = "sktime"
-version = "0.38.5"
-requires_python = "<3.14,>=3.9"
-summary = "A unified framework for machine learning with time series"
-groups = ["default"]
-dependencies = [
-    "joblib<1.6,>=1.2.0",
-    "numpy<2.4,>=1.21",
-    "packaging",
-    "pandas<2.4.0,>=1.1",
-    "scikit-base<0.13.0,>=0.6.1",
-    "scikit-learn<1.8.0,>=0.24",
-    "scipy<2.0.0,>=1.2",
-]
-files = [
-    {file = "sktime-0.38.5-py3-none-any.whl", hash = "sha256:5419ce29ae0d20a40124325c30e40d5a339cc1bfba74080912c3cee45aa8e347"},
-    {file = "sktime-0.38.5.tar.gz", hash = "sha256:0e110aa440ca0baafaf21ae23f1edf22d1c7a289254d9d99e81979580055a955"},
 ]
 
 [[package]]
@@ -3914,6 +4010,39 @@ files = [
 ]
 
 [[package]]
+name = "statsforecast"
+version = "2.0.2"
+requires_python = ">=3.9"
+summary = "Time series forecasting suite using statistical models"
+groups = ["default"]
+dependencies = [
+    "cloudpickle",
+    "coreforecast>=0.0.12",
+    "fugue>=0.8.1",
+    "numba>=0.55.0",
+    "numpy>=1.21.6",
+    "pandas>=1.3.5",
+    "scipy<1.16.0,>=1.7.3",
+    "statsmodels>=0.13.2",
+    "threadpoolctl>=3",
+    "tqdm",
+    "utilsforecast>=0.1.4",
+]
+files = [
+    {file = "statsforecast-2.0.2-cp311-cp311-macosx_10_9_x86_64.whl", hash = "sha256:2e06cb110925600e699a45cbd5ada71edd8ec2553f4ce637ba788f3d03a7261b"},
+    {file = "statsforecast-2.0.2-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:a770e480c9f11cc1e9587bc27c45fa44e9716d6c116cb8d6ebc2a3031f3a6adf"},
+    {file = "statsforecast-2.0.2-cp311-cp311-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:64b907ec8241ef357852e38c5ef67242610b3549db070c8b76b0a12325317dba"},
+    {file = "statsforecast-2.0.2-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:9ca4d6f9a343feb1566a54e1e4c66c3a896d85a18bb0fafe648f297726ba54a7"},
+    {file = "statsforecast-2.0.2-cp311-cp311-win_amd64.whl", hash = "sha256:cf4411f1b7003a1f1333e2f23817add72016b265d5e207e089ad6b17786bd976"},
+    {file = "statsforecast-2.0.2-cp312-cp312-macosx_10_13_x86_64.whl", hash = "sha256:d342aae66a563cb39ecbbf71817942de9b3baf68c60f6efb3eac5e5704815507"},
+    {file = "statsforecast-2.0.2-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:7e44b95ed0632668594ba765b664867c6a222f2314a19eabe47aa9953a8034d9"},
+    {file = "statsforecast-2.0.2-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:39636b274261f7411d89c8b4b2e1cc313fe1a3ffb2b8b420300200a79a3de814"},
+    {file = "statsforecast-2.0.2-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:98ad5a7fbd1795681af3583273e527308372b4d64d1575f28378f1876fbe4a42"},
+    {file = "statsforecast-2.0.2-cp312-cp312-win_amd64.whl", hash = "sha256:90670eef1814ef75f6dd5902e9838d87bd9184a17fe2427f362712201dc90550"},
+    {file = "statsforecast-2.0.2.tar.gz", hash = "sha256:fd790fd4fe98f6e5571ee9f3a3d77bdffa7d57702b68a7657675be3864b77d46"},
+]
+
+[[package]]
 name = "statsmodels"
 version = "0.14.5"
 requires_python = ">=3.9"
@@ -3978,16 +4107,6 @@ dependencies = [
 files = [
     {file = "terminado-0.18.1-py3-none-any.whl", hash = "sha256:a4468e1b37bb318f8a86514f65814e1afc977cf29b3992a4500d9dd305dcceb0"},
     {file = "terminado-0.18.1.tar.gz", hash = "sha256:de09f2c4b85de4765f7714688fff57d3e75bad1f909b589fde880460c753fd2e"},
-]
-
-[[package]]
-name = "text-unidecode"
-version = "1.3"
-summary = "The most basic Text::Unidecode port"
-groups = ["default"]
-files = [
-    {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
-    {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
 ]
 
 [[package]]
@@ -4070,6 +4189,25 @@ groups = ["dev"]
 files = [
     {file = "traitlets-5.14.3-py3-none-any.whl", hash = "sha256:b74e89e397b1ed28cc831db7aea759ba6640cb3de13090ca145426688ff1ac4f"},
     {file = "traitlets-5.14.3.tar.gz", hash = "sha256:9ed0579d3502c94b4b3732ac120375cda96f923114522847de4b3bb98b96b6b7"},
+]
+
+[[package]]
+name = "triad"
+version = "0.9.8"
+requires_python = ">=3.8"
+summary = "A collection of python utils for Fugue projects"
+groups = ["default"]
+dependencies = [
+    "fs",
+    "fsspec>=2022.5.0",
+    "numpy",
+    "pandas>=1.3.5",
+    "pyarrow>=6.0.1",
+    "six",
+]
+files = [
+    {file = "triad-0.9.8-py3-none-any.whl", hash = "sha256:2c0ba7d83977c6d4e7b59e3cc70727f858014ef7676c62d184aa8e63f7bef5de"},
+    {file = "triad-0.9.8.tar.gz", hash = "sha256:5b67673124891981daf8afbab44b2e6358932ca35ef3ff38a25bc3e0f6f03f17"},
 ]
 
 [[package]]
@@ -4156,6 +4294,22 @@ groups = ["default", "dev"]
 files = [
     {file = "urllib3-2.5.0-py3-none-any.whl", hash = "sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc"},
     {file = "urllib3-2.5.0.tar.gz", hash = "sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"},
+]
+
+[[package]]
+name = "utilsforecast"
+version = "0.2.14"
+requires_python = ">=3.9"
+summary = "Forecasting utilities"
+groups = ["default"]
+dependencies = [
+    "numpy",
+    "packaging",
+    "pandas>=1.1.1",
+]
+files = [
+    {file = "utilsforecast-0.2.14-py3-none-any.whl", hash = "sha256:5e53be3b88675f14f52b8983896e55946dd7eccbdff786066ac3bb4a22c130b9"},
+    {file = "utilsforecast-0.2.14.tar.gz", hash = "sha256:7411957b1e4c7b0681704091a8e142e65cb03014699ccd949b9cec2f926d86ee"},
 ]
 
 [[package]]
@@ -4254,7 +4408,7 @@ files = [
 name = "webencodings"
 version = "0.5.1"
 summary = "Character encoding aliases for legacy web content"
-groups = ["default", "dev"]
+groups = ["dev"]
 files = [
     {file = "webencodings-0.5.1-py2.py3-none-any.whl", hash = "sha256:a0af1213f3c2226497a97e2b3aa01a7e4bee4f403f95be16fc9acd2947514a78"},
     {file = "webencodings-0.5.1.tar.gz", hash = "sha256:b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"},

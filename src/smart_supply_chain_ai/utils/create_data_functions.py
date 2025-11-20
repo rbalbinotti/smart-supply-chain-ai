@@ -1,3 +1,31 @@
+"""
+Utility Functions for Synthetic Demand Data Generation (Grocery/Retail)
+
+This module provides functions to create a synthetic time series dataset,
+simulating product sales or demand. The goal is to generate complex data,
+incorporating trend, seasonality, events (such as holidays or promotions),
+and price variations, making it suitable for forecasting modeling tasks.
+
+Function/Class:	Purpose
+- get_product_ids:	
+    Creates unique product IDs and product names based on categories (e.g., "A1", "A2", "B1", etc.).
+- create_base_df:	
+    Constructs the base time series DataFrame with essential columns: unique_id, ds (date/timestamp), and y (target value, e.g., demand or sales).
+- add_trend_seasonality:	
+    Adds trend (growth) and seasonality (annual, weekly) components to the target value (y) using functions like sine/cosine or simple models.
+- add_events:
+	Introduces the effect of events (such as holidays, promotions, or price changes) into the data, increasing or decreasing demand on specific dates.
+- add_price_feature:
+	Adds a price column as an exogenous variable, typically with an inverse relationship to demand (demand falls when price rises).
+- create_synthetic_data:
+	The main function that orchestrates the calls to all the above functions to build the complete synthetic time series dataset.
+
+Author: Roberto Rosário Balbinotti
+Created: 2025
+Version: 1.0
+"""
+
+
 import pandas as pd
 import numpy as np
 import ast
@@ -191,6 +219,7 @@ class DateFeatureExtractor(BaseEstimator, TransformerMixin):
         for date in dates:
             pd_date = pd.Timestamp(date)
             features_data.append({
+                'ds': pd_date,
                 'year': pd_date.year,
                 'month': pd_date.month,
                 'day': pd_date.day,

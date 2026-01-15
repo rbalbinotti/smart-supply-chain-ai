@@ -1,0 +1,5 @@
+outs:
+- md5: 72243b22b8a9bf0443b69c269f5f74a3
+  size: 4635457
+  hash: md5
+  path: grocery.parquet

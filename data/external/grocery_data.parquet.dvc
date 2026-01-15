@@ -1,0 +1,5 @@
+outs:
+- md5: 27e052334119784a69742bfdaed7ee52
+  size: 4630945
+  hash: md5
+  path: grocery_data.parquet

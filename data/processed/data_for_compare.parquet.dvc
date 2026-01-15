@@ -1,0 +1,5 @@
+outs:
+- md5: 1724d6037cdc2116dba3b040b2fc8add
+  size: 543923
+  hash: md5
+  path: data_for_compare.parquet

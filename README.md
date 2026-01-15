@@ -2,8 +2,12 @@
 
 ## Autor: Roberto Rosário Balbinotti
 Contato e Licença:  
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roberto-balbinotti)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](https://mailto:rbalbinotti@gmail.com)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/roberto-balbinotti)
+[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/rbalbinotti)
+[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/robertobalbinotti)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rbalbinotti@gmail.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5551920018268)
+
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 
@@ -16,7 +20,9 @@ Maximizar a eficiência e os resultados financeiros de empresas através da otim
 
 Aqui você pode encontrar a [proposta detalhada do projeto](docs/propose_project.md).
 
+## Engineering Highlights
 
+Este projeto segue os padrões de MLOps, com separação de preocupações (SoC), versionamento de dados via DVC e ambiente conteinerizado com Docker para garantir a reprodutibilidade em escala empresarial.
 
 ## Módulos da Solução
 A solução foi arquitetada em módulos interconectados, cada um com uma função específica para a otimização de estoque e compras:

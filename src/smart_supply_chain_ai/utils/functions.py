@@ -159,7 +159,12 @@ class DataProcessor:
 
         return self.dataset[(self.dataset[self.column] > upper_limit) | (self.dataset[self.column] < under_limit)]
 
-
+def add_date_features(df, date_cols):
+    df['ds'] = pd.to_datetime(df['ds'])
+    for col in date_cols:
+        # Cria a feature. O mlforecast fará o One-Hot Encoding internamente se necessário
+        df[col] = getattr(df['ds'].dt, col).astype(int)
+    return df
 
 if __name__ == '__main__':
 

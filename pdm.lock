@@ -5,7 +5,7 @@
 groups = ["default", "dev"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:ecd18ac14a732025a470f11f21b9416b03dc209187df8bc2f9fb5ff4e3350a4e"
+content_hash = "sha256:7bda13544e76e5972633efd968d0af5e02ffa39652e052b593af93c39a1c1ef1"
 
 [[metadata.targets]]
 requires_python = ">=3.11,<3.13"
@@ -689,20 +689,6 @@ files = [
 ]
 
 [[package]]
-name = "convertdate"
-version = "2.4.0"
-requires_python = "<4,>=3.7"
-summary = "Converts between Gregorian dates and other calendar systems"
-groups = ["default"]
-dependencies = [
-    "pymeeus<=1,>=0.3.13",
-]
-files = [
-    {file = "convertdate-2.4.0-py3-none-any.whl", hash = "sha256:fcffe3a67522172648cf03b0c3757cfd079726fe5ae04ce29989ad3958039e4e"},
-    {file = "convertdate-2.4.0.tar.gz", hash = "sha256:770c6b2195544d3e451e230b3f1c9b121ed02680b877f896306a04cf6f26b48f"},
-]
-
-[[package]]
 name = "coreforecast"
 version = "0.0.16"
 requires_python = ">=3.9"
@@ -723,52 +709,6 @@ files = [
     {file = "coreforecast-0.0.16-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:57ca4f0e374fee7eddf3ab3c2be36e56df95a050f4fb8c28757ae3150980f06c"},
     {file = "coreforecast-0.0.16-cp312-cp312-win_amd64.whl", hash = "sha256:0b845827b0e00b017abe3c38e77f628cdca9770fd7bb02861f6edaed0d482d2b"},
     {file = "coreforecast-0.0.16.tar.gz", hash = "sha256:47d7efc4a03e736dc29a44184934cf7535371fcd8434c3f2a31b0d663b6d88ea"},
-]
-
-[[package]]
-name = "cramjam"
-version = "2.11.0"
-requires_python = ">=3.8"
-summary = "Thin Python bindings to de/compression algorithms in Rust"
-groups = ["default"]
-files = [
-    {file = "cramjam-2.11.0-cp311-cp311-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:04cfa39118570e70e920a9b75c733299784b6d269733dbc791d9aaed6edd2615"},
-    {file = "cramjam-2.11.0-cp311-cp311-macosx_10_12_x86_64.whl", hash = "sha256:66a18f68506290349a256375d7aa2f645b9f7993c10fc4cc211db214e4e61d2b"},
-    {file = "cramjam-2.11.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:50e7d65533857736cd56f6509cf2c4866f28ad84dd15b5bdbf2f8a81e77fa28a"},
-    {file = "cramjam-2.11.0-cp311-cp311-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:1f71989668458fc327ac15396db28d92df22f8024bb12963929798b2729d2df5"},
-    {file = "cramjam-2.11.0-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ee77ac543f1e2b22af1e8be3ae589f729491b6090582340aacd77d1d757d9569"},
-    {file = "cramjam-2.11.0-cp311-cp311-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:ad52784120e7e4d8a0b5b0517d185b8bf7f74f5e17272857ddc8951a628d9be1"},
-    {file = "cramjam-2.11.0-cp311-cp311-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:4b86f8e6d9c1b3f9a75b2af870c93ceee0f1b827cd2507387540e053b35d7459"},
-    {file = "cramjam-2.11.0-cp311-cp311-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:320d61938950d95da2371b46c406ec433e7955fae9f396c8e1bf148ffc187d11"},
-    {file = "cramjam-2.11.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:41eafc8c1653a35a5c7e75ad48138f9f60085cc05cd99d592e5298552d944e9f"},
-    {file = "cramjam-2.11.0-cp311-cp311-musllinux_1_1_aarch64.whl", hash = "sha256:03a7316c6bf763dfa34279335b27702321da44c455a64de58112968c0818ec4a"},
-    {file = "cramjam-2.11.0-cp311-cp311-musllinux_1_1_armv7l.whl", hash = "sha256:244c2ed8bd7ccbb294a2abe7ca6498db7e89d7eb5e744691dc511a7dc82e65ca"},
-    {file = "cramjam-2.11.0-cp311-cp311-musllinux_1_1_i686.whl", hash = "sha256:405f8790bad36ce0b4bbdb964ad51507bfc7942c78447f25cb828b870a1d86a0"},
-    {file = "cramjam-2.11.0-cp311-cp311-musllinux_1_1_x86_64.whl", hash = "sha256:6b1b751a5411032b08fb3ac556160229ca01c6bbe4757bb3a9a40b951ebaac23"},
-    {file = "cramjam-2.11.0-cp311-cp311-win32.whl", hash = "sha256:5251585608778b9ac8effed544933df7ad85b4ba21ee9738b551f17798b215ac"},
-    {file = "cramjam-2.11.0-cp311-cp311-win_amd64.whl", hash = "sha256:dca88bc8b68ce6d35dafd8c4d5d59a238a56c43fa02b74c2ce5f9dfb0d1ccb46"},
-    {file = "cramjam-2.11.0-cp312-cp312-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:dba5c14b8b4f73ea1e65720f5a3fe4280c1d27761238378be8274135c60bbc6e"},
-    {file = "cramjam-2.11.0-cp312-cp312-macosx_10_12_x86_64.whl", hash = "sha256:11eb40722b3fcf3e6890fba46c711bf60f8dc26360a24876c85e52d76c33b25b"},
-    {file = "cramjam-2.11.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:aeb26e2898994b6e8319f19a4d37c481512acdcc6d30e1b5ecc9d8ec57e835cb"},
-    {file = "cramjam-2.11.0-cp312-cp312-manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:4f8d82081ed7d8fe52c982bd1f06e4c7631a73fe1fb6d4b3b3f2404f87dc40fe"},
-    {file = "cramjam-2.11.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:092a3ec26e0a679305018380e4f652eae1b6dfe3fc3b154ee76aa6b92221a17c"},
-    {file = "cramjam-2.11.0-cp312-cp312-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:529d6d667c65fd105d10bd83d1cd3f9869f8fd6c66efac9415c1812281196a92"},
-    {file = "cramjam-2.11.0-cp312-cp312-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:555eb9c90c450e0f76e27d9ff064e64a8b8c6478ab1a5594c91b7bc5c82fd9f0"},
-    {file = "cramjam-2.11.0-cp312-cp312-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:5edf4c9e32493035b514cf2ba0c969d81ccb31de63bd05490cc8bfe3b431674e"},
-    {file = "cramjam-2.11.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2fa2fe41f48c4d58d923803383b0737f048918b5a0d10390de9628bb6272b107"},
-    {file = "cramjam-2.11.0-cp312-cp312-musllinux_1_1_aarch64.whl", hash = "sha256:9ca14cf1cabdb0b77d606db1bb9e9ca593b1dbd421fcaf251ec9a5431ec449f3"},
-    {file = "cramjam-2.11.0-cp312-cp312-musllinux_1_1_armv7l.whl", hash = "sha256:309e95bf898829476bccf4fd2c358ec00e7ff73a12f95a3cdeeba4bb1d3683d5"},
-    {file = "cramjam-2.11.0-cp312-cp312-musllinux_1_1_i686.whl", hash = "sha256:86dca35d2f15ef22922411496c220f3c9e315d5512f316fe417461971cc1648d"},
-    {file = "cramjam-2.11.0-cp312-cp312-musllinux_1_1_x86_64.whl", hash = "sha256:193c6488bd2f514cbc0bef5c18fad61a5f9c8d059dd56edf773b3b37f0e85496"},
-    {file = "cramjam-2.11.0-cp312-cp312-win32.whl", hash = "sha256:514e2c008a8b4fa823122ca3ecab896eac41d9aa0f5fc881bd6264486c204e32"},
-    {file = "cramjam-2.11.0-cp312-cp312-win_amd64.whl", hash = "sha256:53fed080476d5f6ad7505883ec5d1ec28ba36c2273db3b3e92d7224fe5e463db"},
-    {file = "cramjam-2.11.0-pp311-pypy311_pp73-macosx_10_12_x86_64.macosx_11_0_arm64.macosx_10_12_universal2.whl", hash = "sha256:52d5db3369f95b27b9f3c14d067acb0b183333613363ed34268c9e04560f997f"},
-    {file = "cramjam-2.11.0-pp311-pypy311_pp73-macosx_10_12_x86_64.whl", hash = "sha256:4820516366d455b549a44d0e2210ee7c4575882dda677564ce79092588321d54"},
-    {file = "cramjam-2.11.0-pp311-pypy311_pp73-macosx_11_0_arm64.whl", hash = "sha256:d9e5db525dc0a950a825202f84ee68d89a072479e07da98795a3469df942d301"},
-    {file = "cramjam-2.11.0-pp311-pypy311_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:62ab4971199b2270005359cdc379bc5736071dc7c9a228581c5122d9ffaac50c"},
-    {file = "cramjam-2.11.0-pp311-pypy311_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:24758375cc5414d3035ca967ebb800e8f24604ececcba3c67d6f0218201ebf2d"},
-    {file = "cramjam-2.11.0-pp311-pypy311_pp73-win_amd64.whl", hash = "sha256:6c2eea545fef1065c7dd4eda991666fd9c783fbc1d226592ccca8d8891c02f23"},
-    {file = "cramjam-2.11.0.tar.gz", hash = "sha256:5c82500ed91605c2d9781380b378397012e25127e89d64f460fea6aeac4389b4"},
 ]
 
 [[package]]
@@ -1210,39 +1150,6 @@ groups = ["dev"]
 files = [
     {file = "fastjsonschema-2.21.2-py3-none-any.whl", hash = "sha256:1c797122d0a86c5cace2e54bf4e819c36223b552017172f32c5c024a6b77e463"},
     {file = "fastjsonschema-2.21.2.tar.gz", hash = "sha256:b1eb43748041c880796cd077f1a07c3d94e93ae84bba5ed36800a33554ae05de"},
-]
-
-[[package]]
-name = "fastparquet"
-version = "2025.12.0"
-requires_python = ">=3.10"
-summary = "Python support for Parquet file format"
-groups = ["default"]
-dependencies = [
-    "cramjam>=2.3",
-    "fsspec",
-    "numpy",
-    "packaging",
-    "pandas>=1.5.0",
-]
-files = [
-    {file = "fastparquet-2025.12.0-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:268ca27e80f49e07f5bedf8b534971d3d3ef5621ea26fed1fb3d5c122b25abe1"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:48b8d3f0565986d4dfe4627b6104cb8a0488fbdd642b6cf0585e2b907c11cb49"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:67a99515d9ccaf59bc815f0e0244468a07be7a0d2eb5940308993f1fdd2acb0a"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:809e17bd79b16b9b47526a48e04447b365df404f30c33a118884a365569a3a6b"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:4826ff55a2d7b99309752a5bda6569e17028f53a7e7bfbca6ac067dd5af659f6"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:053581b9456848b27e2d9289dce41686a6739f107573731121f213064dd5baac"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:a79b2520449511503b434b0e45746d604ecf88a56d1e6e1297dc5b6b0871b5bf"},
-    {file = "fastparquet-2025.12.0-cp311-cp311-win_amd64.whl", hash = "sha256:1724e03aa2b68cd585dff52ce7994110366c8d73782f895197db29cee833a840"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-macosx_10_13_universal2.whl", hash = "sha256:27b1cf0557ddddbf0e28db64d4d3bea1384be1d245b2cef280d001811e3600fe"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:9356c59e48825d61719960ccb9ce799ad5cd1b04f2f13368f03fab1f3c645d1e"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-manylinux1_i686.manylinux_2_28_i686.manylinux_2_5_i686.whl", hash = "sha256:c4c92e299a314d4b542dc881eeb4d587dc075c0a5a86c07ccf171d8852e9736d"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:4881dc91c7e6d1d08cda9968ed1816b0c66a74b1826014c26713cad923aaca71"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl", hash = "sha256:d8d70d90614f19752919037c4a88aaaeda3cd7667aeb54857c48054e2a9e3588"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:8e2ccf387f629cb11b72fec6f15a55e0f40759b47713124764a9867097bcd377"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:1978e7f3c32044f2f7a0b35784240dfc3eaeb8065a879fa3011c832fea4e7037"},
-    {file = "fastparquet-2025.12.0-cp312-cp312-win_amd64.whl", hash = "sha256:25e87fff63c011fe658a7547ba83355e02568db1ee26a65e6b75c2287701d5dc"},
-    {file = "fastparquet-2025.12.0.tar.gz", hash = "sha256:85f807d3846c7691855a68ed7ff6ee40654b72b997f5b1199e6310a1e19d1cd5"},
 ]
 
 [[package]]
@@ -2355,16 +2262,6 @@ files = [
     {file = "llvmlite-0.45.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl", hash = "sha256:779e2f2ceefef0f4368548685f0b4adde34e5f4b457e90391f570a10b348d433"},
     {file = "llvmlite-0.45.1-cp312-cp312-win_amd64.whl", hash = "sha256:9e6c9949baf25d9aa9cd7cf0f6d011b9ca660dd17f5ba2b23bdbdb77cc86b116"},
     {file = "llvmlite-0.45.1.tar.gz", hash = "sha256:09430bb9d0bb58fc45a45a57c7eae912850bedc095cd0810a57de109c69e1c32"},
-]
-
-[[package]]
-name = "lunardate"
-version = "0.2.2"
-summary = "A Chinese Calendar Library in Pure Python"
-groups = ["default"]
-files = [
-    {file = "lunardate-0.2.2-py3-none-any.whl", hash = "sha256:cf1916337e50470a82df12d885ff47a456e89c91a3ad4e5fdf1575e063a7ed55"},
-    {file = "lunardate-0.2.2.tar.gz", hash = "sha256:8ff8c01721bef7710f0712a302b1cb7d0b8b3ffc72a63a9a056cd01e58e5485a"},
 ]
 
 [[package]]
@@ -3498,26 +3395,6 @@ files = [
 ]
 
 [[package]]
-name = "pyluach"
-version = "2.3.0"
-requires_python = ">=3.8"
-summary = "A Python package for dealing with Hebrew (Jewish) calendar dates."
-groups = ["default"]
-files = [
-    {file = "pyluach-2.3.0-py3-none-any.whl", hash = "sha256:4497b731aef59508b079dbf5f00bc5bf4329ac45090a6cd37b5a83756f0e69ab"},
-    {file = "pyluach-2.3.0.tar.gz", hash = "sha256:ec6e30669d1df50c9ca160486da44a8195bb4c7a5d3d533990d0c5b03accd281"},
-]
-
-[[package]]
-name = "pymeeus"
-version = "0.5.12"
-summary = "Python implementation of Jean Meeus astronomical routines"
-groups = ["default"]
-files = [
-    {file = "PyMeeus-0.5.12.tar.gz", hash = "sha256:548f7186bd8b96cbc069cf649a8e8e377dce49ac74486709849fe63a99cad684"},
-]
-
-[[package]]
 name = "pyparsing"
 version = "3.2.3"
 requires_python = ">=3.9"
@@ -4624,26 +4501,6 @@ groups = ["dev"]
 files = [
     {file = "widgetsnbextension-4.0.14-py3-none-any.whl", hash = "sha256:4875a9eaf72fbf5079dc372a51a9f268fc38d46f767cbf85c43a36da5cb9b575"},
     {file = "widgetsnbextension-4.0.14.tar.gz", hash = "sha256:a3629b04e3edb893212df862038c7232f62973373869db5084aed739b437b5af"},
-]
-
-[[package]]
-name = "workalendar"
-version = "17.0.0"
-requires_python = ">=3.7"
-summary = "Worldwide holidays and working days helper and toolkit."
-groups = ["default"]
-dependencies = [
-    "backports-zoneinfo; python_version < \"3.9\"",
-    "convertdate",
-    "importlib-metadata; python_version < \"3.8\"",
-    "lunardate",
-    "pyluach",
-    "python-dateutil",
-    "tzdata; platform_system == \"Windows\"",
-]
-files = [
-    {file = "workalendar-17.0.0-py3-none-any.whl", hash = "sha256:8fe1d6758f9a1af05d59cb81480afb912246ec7fa46e246b909897127cdbb1b0"},
-    {file = "workalendar-17.0.0.tar.gz", hash = "sha256:b82d6024aed452505b01baf06dbe8d6309a3135ff1d39dee07c31b21ece853b4"},
 ]
 
 [[package]]

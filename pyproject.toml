@@ -24,7 +24,7 @@ dev = [
     "ipywidgets>=8.1.7",
     "deptry>=0.23.1",
     "pre-commit>=4.3.0",
-    "git+https://github.com/PyFilesystem/pyfilesystem2.git",
+    "fs @ git+https://github.com/PyFilesystem/pyfilesystem2.git",
 ]
 
 [tool.deptry]
